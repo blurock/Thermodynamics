@@ -1,0 +1,22 @@
+ExternalSymmetry-C(B1)(B1)(B1) GeneralMethylConnection SecondaryExternalSymmetry
+0: a3 a4 a5: X
+Symmetry: 3
+
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-X	CarbonAtom	ExternalSymmetry
+0: a5 a3 a4:X
+1: a2:X
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-3	CarbonAtom	ExternalSymmetry
+CarbonAsymetry	CarbonAtom	Optical Isomers
+0: a2 :N
+1: a3 :N
+2: a4 :N
+3: a5 :N
+InternalSymmetry-B(B1)(B2)(B2)(B2)	CarbonAtom	InternalSymmetry
+0: a5 a4 a3 : N
+1: a2: N
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-L	CarbonAtom	ExternalSymmetry
+
+ExternalSymmetry-C(B1)(B2)(B2)(B2)-3	CarbonAtom	ExternalSymmetry
+ExternalSymmetry-C(B1)(B2)(B2)(B2)-L	CarbonAtom	ExternalSymmetry
+ExternalSymmetry-C(B1)(B1)(B2)(B2)	CarbonAtom	ExternalSymmetry
+ExternalSymmetry-C(B1)(B1)(B1)	GeneralMethylConnection	SecondaryExternalSymmetry

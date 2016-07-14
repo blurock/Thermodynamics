@@ -1,0 +1,136 @@
+-----------------------------------
+ ch2(.)/ch2/ch2/ch2/cf3
+list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1          -1                                        
+   Free rotations                                                               
+  -------------------------------                                               
+  internal symmetrie different of 6                                             
+============================================
+ ch3/c(ch3)(.)/ch2/ch2/ch2/cf3
+      12      1    2    CH3 correction pour C tertiaire                         
+
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1          -1                                        
+     c    /  c            -1          -1                                        
+     c    /  c            -1          -1                                        
+
+   Free rotations                                                               
+  -------------------------------                                               
+  internal symmetrie different of 6                                             
+
+============================================
+ ch3/c(ch3)(.)/ch(ch3)/ch2/ch2/ch2/cf3
+      12      1    3    CH3 correction pour C tertiaire                         
+
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1          -1                                        
+     c    /  c            -1          -1                                        
+     c    /  c            -1          -1                                        
+     Free rotations                                                               
+  -------------------------------                                               
+  internal symmetrie different of 6                                             
+
+============================================
+ch2(.)/ch//ch/ch2/ch2/ch2/cf3
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1         380                                        
+   Free rotations                                                               
+  -------------------------------                                               
+  no correction of rotation                                                     
+  model -->c//c(h)/ch3                                                          
+      value of the barrier v= 1.50                                              
+============================================
+ ch2(.)/c(ch3)//ch/ch2/ch2/ch2/cf3
+      12      6    1    cis interaction - no t-butyl group                      
+                                                                                
+  valeur de S n'est pas tabulee pour la correction (12            6)            
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1         341                                        
+  Free rotations                                                               
+  -------------------------------                                               
+  no correction of rotation                                                     
+  model-->c//c(r1)/ch3,r1 non h                                                 
+      value of the barrier v= 2.40                                              
+ 
+============================================
+ch(ch3)(.)/ch//ch/ch2/ch2/ch2/cf3
+
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1          -1                                        
+     c    /  c            -1         131                                        
+
+   Free rotations                                                               
+  -------------------------------                                               
+  no correction of rotation                                                     
+  case of c/c(r1)(r2)(h)                                                        
+  v <- 2/3 value of model.                                                      
+  model c/c/c - c/c chosen.                                                     
+      value of the barrier v= 3.33                                              
+============================================
+ c(ch3)2(.)/ch//ch/ch2/ch2/ch2/cf3
+
+      12      1    2    CH3 correction pour C tertiaire                         
+
+  list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1          -1                                        
+     c    /  c            -1          -1                                        
+     c    /  c            -1          82                                        
+
+   Free rotations                                                               
+  -------------------------------                                               
+  no correction of rotation                                                     
+  case of c/c(r1)(r2)(h)                                                        
+  v <- 2/3 value of model.                                                      
+  model c(c)2 - c/c/c chosen.                                                   
+      value of the barrier v= 5.33                                              
+
+============================================
+ ch2(.)/c(ch3)//ch/ch2/ch2/cf3
+
+     12      6    1    cis interaction - no t-butyl group                      
+                                                                                
+  valeur de S n'est pas tabulee pour la correction (12            6)            
+   list of torsions,value -1 indicates a rotation                                
+  rotations are treated by a different way.                                     
+                                                                                
+      rotation         model       radical                                      
+      --------         ------      -------                                      
+     c    /  c            -1         341                                        
+
+   Free rotations                                                               
+  -------------------------------                                               
+  no correction of rotation                                                     
+  model-->c//c(r1)/ch3,r1 non h                                                 
+      value of the barrier v= 2.40                                              
+                                                                                
+ ============================================
+============================================
+============================================

@@ -1,0 +1,42 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package thermo.data.structure.structure.symmetry.DB;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Iterator;
+import java.util.Vector;
+import thermo.data.benson.DB.ThermoSQLConnection;
+import thermo.data.structure.structure.symmetry.SetOfSymmetyDefinitions;
+import thermo.data.structure.structure.symmetry.SymmetryDefinition;
+
+/**
+ *
+ * @author edwardblurock
+ */
+public class SQLSetOfSymmetryDefinitions extends SetOfSymmetyDefinitions {
+    ThermoSQLConnection connect;
+    SQLSymmetryDefinition sqlSymmetry;
+    public SQLSetOfSymmetryDefinitions(ThermoSQLConnection c, String type) throws SQLException {
+        connect = c;
+        sqlSymmetry = new SQLSymmetryDefinition(c);
+        Statement statement = connect.createStatement();
+        String isomersql = "SELECT SymmetryName FROM SymmetryDefinition WHERE SymmetryType=\""
+                + type + "\";";
+        ResultSet results = statement.executeQuery(isomersql);
+        while(results.next()) {
+            String name = results.getString("SymmetryName");
+            Vector vec = sqlSymmetry.retrieveStructuresFromDatabase(name);
+            Iterator<SymmetryDefinition> iter = vec.iterator();
+            while(iter.hasNext()) {
+                SymmetryDefinition def = iter.next();
+                this.add(def);
+            }
+        }
+    }
+
+}

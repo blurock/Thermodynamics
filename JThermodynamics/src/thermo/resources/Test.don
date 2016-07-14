@@ -1,0 +1,12 @@
+c          ecriture lineaire version octobre 85 (modified October 2010)
+c          corrections cycles et table 12
+c          (cbf ajoutes)
+g
+  1  62 1.cyclopropene ring                               1 0.0 1.0     1 1.0j73
+l  cR2(#1)/cR//cR/1                                                           
+  1  62 2  1  53.700 1  33.600 0  0.00  0.00  0.00  0.00  0.00  0.00  0.00 0 j73
+  1  62 3  0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0j7
+  1  65 1.cyclopentane ring                               1 0.0 1.0     1 1.0j73
+l  cR2(#1)/cR2/cR2/cR2/cR2/1                                                        
+  1  65 2  1   6.300 1  27.300 1 -6.50 -5.50 -4.50 -3.80 -2.80 -1.93 -0.37 0 j73
+  1  65 3  0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0j7

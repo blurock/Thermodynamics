@@ -1,0 +1,7 @@
+OpticalSymmetry-Peroxy(Z1)(Z2)     GeneralPeroxyGroup    OpticalIsomers
+0: a0:X
+1: a3:X
+Symmetry: 2
+OpticalSymmetry-Peroxy(Z1)2     GeneralPeroxyGroup    OpticalIsomers
+0: a0 a3:X
+Symmetry: 2

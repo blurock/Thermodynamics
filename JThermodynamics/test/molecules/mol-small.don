@@ -1,0 +1,24 @@
+c        ******************************************
+c         liste des molecules tabulees.
+c        ******************************************
+c
+c        ******************************************
+c         liste des radicaux tabules .
+c        ******************************************
+c         fichier modifie le 26 juin 89 ajout des
+c         dernieres lignes
+c
+c         ajout en novembre 91 de cbrf3 11 272, de fco 13 75
+c         et de fo 13 76
+c
+c         correction des erreurs dans l'enregistrement 3
+c         le 28 fevrier 92
+c         verification de la place des differentes valeurs
+c         le 3 avril 92
+c
+ 10  12 1 'co'h2              carbonyl dibromide            0 1.0 1.0     1 1.0s73
+ 10  12 2  1 -23.600 1  73.820 0  0.00  0.00  0.00  0.00  0.00  0.00  0.00 0 s73
+ 10  12 3  0 0  2  1  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0s73
+ 13  10 1 cno(.)            cyanato                       0 1.0 1.0     1 1.0j73
+ 13  10 2  0   0.000 1  54.000 5  9.20  0.00 11.60  0.00 13.70 14.60 16.10 7 j73
+ 13  10 3  0 0  0  1  0  0  0  0  0  0  0  0  1  1  0  0  0  0  0  0  0  0  0j73

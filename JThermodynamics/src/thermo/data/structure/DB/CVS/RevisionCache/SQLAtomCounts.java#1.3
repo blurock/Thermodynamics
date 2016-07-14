@@ -1,0 +1,175 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package thermo.data.structure.DB;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Iterator;
+import java.util.Vector;
+import thermo.data.benson.DB.ThermoSQLConnection;
+import thermo.data.structure.structure.AtomCount;
+import thermo.data.structure.structure.AtomCounts;
+
+/** Manage AtomCounts in SQL database
+ *
+ * {@link AtomCounts} is represented in the database as a vector
+ * of {@link AtomCount} classes. This class manages this connection.
+ *
+ * @author edwardblurock
+ */
+public class SQLAtomCounts {
+    ThermoSQLConnection connect;
+    /**
+     *
+     * @param c
+     */
+    public SQLAtomCounts(ThermoSQLConnection c) {
+        connect = c;
+    }
+
+    /** Add AtomCounts to database
+     *
+     * The structure information is added by repeated calls to
+     * the {@link SQLAtomCount} class.
+     *
+     * @param counts The structure
+     * @throws SQLException
+     */
+    public void addToDatabase(AtomCounts counts) throws SQLException {
+       Vector<AtomCount> vec = counts.vectorOfAtomCounts();
+       Iterator<AtomCount> iter = vec.iterator();
+       SQLAtomCount sqlcount = new SQLAtomCount(connect);
+       while(iter.hasNext()) {
+           sqlcount.addToDatabase(iter.next());
+       }
+   }
+    public AtomCounts getAtomCounts(String name) throws SQLException {
+        SQLAtomCount sqlcount = new SQLAtomCount(connect);
+        Vector vec = sqlcount.retrieveStructuresFromDatabase(name);
+        AtomCounts counts = new AtomCounts();
+        counts.setMoleculeID(name);
+        Iterator<AtomCount> iter = vec.iterator();
+        while(iter.hasNext()){
+            AtomCount count = iter.next();
+            Integer cntI = count.getAtomCount();
+            counts.put(count.getSymbolName(),cntI);
+        }
+        return counts;
+    }
+    /** This is the heart of finding a matching {@link AtomCounts} from the AtomCounts database
+     *
+     * A query is set up for an element that matches all the atom symbol and corresponding counts of
+     * {@link AtomCounts}. This match returns the first match, i.e.
+     * assuming a unique match. {@link SQLGroupElement#queryNameSet(thermo.data.benson.BensonGroupStructure) }
+     * is the routine that finds multiple matches.
+     *
+     * @param counts
+     * @return The set of molecules (isomers) having
+     * @throws java.sql.SQLException
+     */
+    public String[] findIsomersInDatabase(AtomCounts counts) throws SQLException {
+        String[] names = findMoleculeWithCounts(counts);
+        String[] filter = filterExactMatches(names,counts);
+        return filter;
+    }
+    /** All structures in database with formula given in AtomCounts
+     *
+     * This search is for all structures that have atom counts
+     * of matching those given in the input {@link AtomCounts}.
+     * However, molecules having additional atoms are included.
+     * If just isomers are wanted, and extra filtering
+     * ({@link AtomCounts::filterExactMatches})
+     *
+     * @param counts The atom counts that should match
+     * @return An array of molecule names matching atom counts
+     * @throws SQLException
+     */
+    public String[] findMoleculeWithCounts(AtomCounts counts) throws SQLException {
+        String[] isomers = null;
+        boolean success = false;
+        StringBuffer sqlqueryB = new StringBuffer();
+        sqlqueryB.append("SELECT DISTINCT p1.Molecule");
+        Vector<AtomCount> vec = counts.vectorOfAtomCounts();
+        sqlqueryB.append(" From ");
+            for (int i = 0; i < vec.size(); i++) {
+                if (i != 0) {
+                    sqlqueryB.append(",");
+                }
+                String iS = String.valueOf(i + 1);
+                sqlqueryB.append("AtomCounts as p" + iS + " ");
+            }
+            sqlqueryB.append(" WHERE ");
+        for (int i = 0; i < vec.size(); i++) {
+            String iS = String.valueOf(i + 1);
+            if(i>0) {
+                sqlqueryB.append(" AND p1.Molecule=p" + iS + ".Molecule AND ");
+            }
+            sqlqueryB.append(" p" + iS + ".AtomCount = " + vec.elementAt(i).getAtomCount());
+            sqlqueryB.append(" AND p" + iS + ".AtomSymbol = \"" + vec.elementAt(i).getSymbolName() + "\" ");
+        }
+        sqlqueryB.append(";");
+        System.out.println(sqlqueryB.toString());
+        Statement statement = connect.createStatement();
+        ResultSet set = statement.executeQuery(sqlqueryB.toString());
+        Vector<String> namesV = new Vector();
+        boolean next = set.first();
+        while(next) {
+            String name = set.getString("Molecule");
+            System.out.println("Query name: '" + name + "'");
+            namesV.add(name);
+            next = set.next();
+        }
+        String[] names = new String[namesV.size()];
+        for(int i=0;i<namesV.size();i++)
+            names[i] = namesV.elementAt(i);
+
+        return names;
+    }
+
+    private String[] filterExactMatches(String[] names, AtomCounts counts) throws SQLException {
+        Statement statement = connect.createStatement();
+        Vector<String> filtered = new Vector<String>();
+        Vector<AtomCount> vec = counts.vectorOfAtomCounts();
+        int sze = vec.size();
+        for(int i=0;i<names.length;i++) {
+            String sqlquery = "SELECT Molecule FROM AtomCounts WHERE Molecule=\"" + names[i] + "\";";
+            ResultSet elements = statement.executeQuery(sqlquery);
+            //elements.first();
+            int count = 0;
+            while(elements.next()) count++;
+            if(count == sze) {
+                filtered.add(names[i]);
+            }
+        }
+        String[] f = new String[filtered.size()];
+        f= filtered.toArray(f);
+        return f;
+    }
+    /** Delete the structure from the database
+     *
+     * Corresponding elements of {@link AtomCount} through
+     * {@link SQLAtomCount} are deleted.
+     *
+     * @param counts The AtomCounts to be deleted
+     * @throws SQLException
+     */
+    public void deleteElement(AtomCounts counts) throws SQLException {
+        Statement statement = connect.createStatement();
+        Vector<AtomCount> vec = counts.vectorOfAtomCounts();
+        SQLAtomCount sqlcount = new SQLAtomCount(connect);
+        Iterator<AtomCount> iter = vec.iterator();
+        while(iter.hasNext()) {
+           sqlcount.deleteElement(iter.next());
+        }
+    }
+    public void deleteElement(String name) throws SQLException {
+        Statement statement = connect.createStatement();
+        String command = "DELETE FROM AtomCounts WHERE Molecule=\""
+                + name +"\";";
+        statement.execute(command);
+    }
+}

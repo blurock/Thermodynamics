@@ -1,0 +1,316 @@
+c
+c                   12 aout 1986 - modifie le 16 nov. 1990
+c                Modification des valeurs (*) de la table 2 
+c                et ajout de n-c4h9(.) et i-c4h9 le 16/12/91
+c
+c                donnees pour le calcul de delta hf de radicaux
+c                 par energie de dissociation de liaison
+c                 --------------------------------------
+c
+c                 table 2 alkanes
+c
+  2  1 105.2 0.2 ch3(.)
+l ch3(.)
+  2  2 100.9 1.0 c2h5(*)
+l ch3/ch2(.)
+  2  3 100.9 1.0 n-c3h7(*)
+l ch3/ch2/ch2(.)
+  2  4  98.5 1.0 i-c3h7(*)
+l c(ch3)2h(.)
+  2  5  98.7 1.0 s-c4h9(*)
+l ch(.)(ch3)/ch2/ch3
+  2  6  95.6 2.0 t-c4h9(*)
+l c(.)(ch3)3
+  2  7 100.9 2.0 t-c5h11
+l c(ch3)3/ch2(.)
+  2  8 106.3 0.3 cyclopropyl
+l c(#1)h2/ch2/ch(.)/1
+  2  9 96.5 1.0 cyclobutyl
+l c(#1)h2/ch2/ch2/ch(.)/1
+  2 10  94.5 1.0 cyclopentyl
+l c(#1)h(.)/ch2/ch2/ch2/ch2/1
+  2 11  99.5 1.0 cyclohexyl(*)
+l c(#1)h(.)/ch2/ch2/ch2/ch2/ch2/1
+  2 12  92.5 1.0 cycloheptyl
+l c(#1)h(.)/ch2/ch2/ch2/ch2/ch2/ch2/1
+  2 15 100.2 1.6 cyclopropyl-methyl(.)
+l c(#1)h/ch2/ch2/1,1/ch2(.)
+  2 20 100.9 0.0 n-c4h9
+l ch2(.)/ch2/ch2/ch3
+  2 21 100.9 0.0 i-c4h9
+l ch2(.)/ch(ch3)2
+c
+c                table 3 olefins and aromatics.
+c
+  3  1 110.9 2.0 ch2//ch
+l ch2//ch(.)
+  3  2 113.3 2.0 phi
+l c(#1)(.)&ch&ch&ch&ch&ch&1
+  3  3 131.0 1.0 c///ch
+l c(.)///ch
+  3  6  88.0 1.5 ch2//ch/ch2
+l ch2//ch/ch2(.)
+  3  7  86.7 1.5 ch2//c(ch3)/ch2
+l ch2//c(ch3)/ch2(.)
+  3  8  83.6 1.3 ch2//ch/ch(ch3)
+l ch2//ch/ch(ch3)(.)
+  3  9  81.2 1.5 ch2//ch/c(ch3)2
+l ch2//ch/c(ch3)2(.)
+  3 10  82.8 1.1 ch2//c(ch3)/c(ch3)2
+l ch2//c(ch3)/c(ch3)2(.)
+  3 11  84.7 1.1 c(ch3)2//c(ch3)/ch2
+l c(ch3)2//c(ch3)/ch2(.)
+  3 12  88.6 1.4 ch2//ch/ch 'cl'
+l ch2//ch/ch'cl'(.)
+  3 13  82.3 1.0 cyclopenten-3-yi
+l c(#1)h(.)/ch2/ch2/ch//ch/1
+  3 14  76.6 3.0 4-pentadien-3-yi
+l ch2//ch/ch(.)/ch//ch2
+  3 15  83.0 3.0 3-pentadien-5-yi
+l ch(/ch//ch2)//ch/ch2(.)
+  3 16  83.9 1.5 1,4-cyclopendadien-3-yi
+l c(#1)h(.)/ch//ch/ch//ch/1
+  3 17  76.9 5.0 1,3-cyclohexadien-5-yi
+l c(#1)h(.)/ch2/ch//ch/ch//ch/1
+  3 18  73.0 2.0 1,3,5-cycloheptatrien-7-yi
+l c(#1)h(.)/ch//ch/ch//ch/ch//ch/1
+  3 19  90.6 4.0 cyclopropen-3-yi
+l c(#1)h(.)/ch//ch/1
+  3 21  89.6 1.0 phi/ch2
+l c(#1)(ch2(.))&ch&ch&ch&ch&ch&1
+  3 22  85.1 1.5 phi/phi(ch2)
+l c(#1)&c(#2)&ch&ch&ch&ch&1,1&c(ch2(.))&ch&ch&ch&2
+  3 23  81.8 1.5 phi/phi(ch2)/phi
+l c(#1)&c(#2)&ch&ch&ch&ch&1,1&c(ch2(.))&c(#3)&c(#4)&ch&2,3&ch&ch&ch&ch&4
+  3 24  85.1 1.5 phi/phi(ch2)/phi (# de 23)
+l c(#1)&c(#2)&ch&ch&ch&ch&1,1&c(ch2(.))&ch&c(#3)&c(#4)&2,3&ch&ch&ch&ch&4
+  3 25  85.4 1.5 phi/ch(.)(ch3)
+l c(#1)(c(.)h/ch3)&ch&ch&ch&ch&ch&1
+  3 26  84.4 1.5 phi/c(ch3)2(.)
+l c(#1)(c(ch3)2(.))&ch&ch&ch&ch&ch&1
+  3 27  84.0 2.0 ch(.)(phi)2
+l c(#1)&ch&ch&ch&ch&ch&1,1/ch(.)/c(#2)&ch&ch&ch&ch&ch&2
+  3 28  81.0 2.0 c(ch3)(.)(phi)2
+l c(#1)&ch&ch&ch&ch&ch&1,1/c(ch3)(.)/c(#2)&ch&ch&ch&ch&ch&2
+  3 29  86.5 2.0 c(#1)(ch2(.))//ch/ch//ch/o/1
+l c(#1)(ch2(.))//ch/ch//ch/o/1
+  3 31  88.9 2.0 ch///c/ch2(.)
+l ch///c/ch2(.)
+  3 32  87.2 2.0 ch3/c///c/ch2(.)
+l ch3/c///c/ch2(.)
+  3 33  87.3 2.7 ch3/c///c/ch(.)/ch3
+l ch3/c///c/ch(.)/ch3
+  3 34  82.3 2.7 ch3/c///c/c(ch3)2(.)
+l ch3/c///c/c(ch3)2(.)
+  3 35  81.0 2.3 ch///c/c(ch3)2(.)
+l ch///c/c(ch3)2(.)
+  3 36  83.1 2.2 ch///ch(.)/ch3
+l ch///c/ch(.)/ch3
+  3 44  86.2 1.5 ch3/ch2/ch//ch/ch2(.)
+l ch3/ch2/ch//ch/ch2(.)
+  3 45  83.8 2.0 c(#1)(.)h/ch//ch/ch2/ch2/ch2/1
+l c(#1)(.)h/ch//ch/ch2/ch2/ch2/1
+  3 46  76.0 3.0 methyl-cyclo-pentadienyl
+l c(#1)(/ch3)(.)/ch//ch/ch//ch/1
+  3 47  83.0 2.0 ch3/ch(.)/c(/ch3)//ch2
+l ch3/ch(.)/c(/ch3)//ch2
+  3 48  84.2 2.0 ch3/ch//c(ch3)/ch2(.)
+l ch3/ch//c(ch3)/ch2(.)
+  3 49  79.8 2.0 ch3/ch//ch/c(.)(ch3)2
+l ch3/ch//ch/c(.)(ch3)2
+  3 50  80.4 2.0 ch3/ch(.)/ch//c(ch3)2 
+l ch3/ch(.)/ch//c(ch3)2
+  3 51  82.6 2.0 ch3/ch//ch/ch(.)/ch3
+l ch3/ch//ch/ch(.)/ch3
+c
+c                table 4: radicaux c,n,o
+c
+  4  1 119.0 1.0 oh(.)
+l oh(.)
+  4  2 104.4 1.0 ch3/o(.)
+l ch3/o(.)
+  4  3 104.2 1.0 o/c2h5
+l o(.)/ch2/ch3
+  4  4 103.4 1.0 o-n-c3h7
+l o(.)/ch2/ch2/ch3
+  4  5 102.9 1.0 o-n-c4h9
+l o(.)/ch2/ch2/ch2/ch3
+  4  6 104.7 1.0 o-i-c3h7
+l o(.)/ch(ch3)2
+  4  7 105.5 1.0 o-s-c4h9
+l o(.)/ch(ch3)/ch2/ch3
+  4  8 105.1 1.0 o/c(ch3)3
+l o(.)/c(ch3)3
+  4 10 102.3 1.5 o/ch2/c(ch3)3
+l o(.)/ch2/c(ch3)3
+  4 11  88.0 2.0 phi/o(.)
+l c(#1)(/o(.))&ch&ch&ch&ch&ch&1
+  4 14  88.1 1.0 o2h
+l o(.)/oh
+  4 15 105.8 2.0 co(ch3)/o(.)
+l o(.)/co/ch3
+  4 16 106.4 2.0 co(c2h5)/o(.)
+l o(.)/co/ch2/ch3
+  4 17 105.9 2.0 co(n-c3h7)/o(.)
+l o(.)/co/ch2/ch2/ch3
+  4 18  89.9 1.0 cho
+l cho(.)
+  4 19  88.9 0.8 ch3/co(.)
+l co(.)/ch3
+  4 20  87.1 1.0 ch2//ch/co(.)
+l ch2//ch/co(.)
+  4 21  87.4 1.0 co(.)/c2h5
+l co(.)/ch2/ch3
+  4 22  86.9 1.0 co(.)/phi
+l c(#1)(co(.))&ch&ch&ch&ch&ch&1
+  4 23  91.0 2.0 cf3/co(.)
+l cf3/co(.)
+  4 24  98.3 1.8 ch3/co/ch2(.)
+l ch3/co/ch2(.)
+  4 25  92.3 1.4 ch3/co/ch(.)/ch3
+l ch3/co/ch(.)/ch3
+  4 26  97.9 2.0 ch2(.)/oh
+l ch2(.)/oh
+  4 27  94.8 1.0 ch(oh)(.)/ch3
+l ch3/ch(.)/oh
+  4 28  93.0 1.0 c(.)(ch3)2(oh)
+l c(.)(ch3)2/oh
+  4 29  96.5 1.0 ch3/o/ch2(.)
+l ch3/o/ch2(.)
+  4 30  92.0 1.0 tetrahydrofuron-2-yi
+l c(#1)h(.)/o/ch2/ch2/ch2/1
+  4 31  81.6 1.8 ch2//ch/ch(.)(oh)
+l ch2//ch/ch(.)/oh
+  4 32  96.5 1.0 co(.)/o/ch3
+l co(.)/o/ch3
+  4 33  99.0 2.0 ch3/co/o/ch2(.)
+l  ch3/co/o/ch2(.)
+  4 34  94.4 2.0 ch3/ch(.)/cho
+l ch3/ch(.)/cho
+  4 35  87.2 2.0 ch3/ch2/o/o(.)
+l ch3/ch2/o/o(.)
+  4 36  87.2 2.0 ch3/o/o(.)
+l ch3/o/o(.)
+  4 37  87.2 2.0 ch3/ch(/oh)/o/o(.)
+l ch3/ch(/oh)/o/o(.)
+  4 38  87.2 0.8 ch3/co/o/o(.)
+l ch3/co/o/o(.)
+  4 39 100.9 1.0 ch2//ch/ch(o/oh)/ch2/ch2(.)
+l ch2//ch/ch(o/oh)/ch2/ch2(.)
+  4 40  87.2 0.8 peroxy-cyclo-hexanol
+l c(#1)h2/c(/oh)(/o/o(.))/ch2/ch2/ch2/ch2/1
+  4 41  96.5 2.0 co(.)/oh
+l co(.)/oh
+  4 42  94.3 2.0 ch3/ch(.)/co/oh
+l  ch3/ch(.)/co/oh
+  4 43  96.7 2.0 ch2(.)/co/oh
+l  ch2(.)/co/oh
+  4 44 100.2 1.3 phi/co/o/ch2(.)
+l c(#1)&ch&ch&ch&ch&ch&1,1/co/o/ch2(.)
+c
+c                table 5:radicaux soufres
+c
+  5  1  91.1 1.0 sh(.)
+l sh(.)
+  5  2  90.7 2.0 ch3/s(.)
+l ch3/s(.)
+  5  3  83.3 2.0 phi/s(.)
+l c(#1)&ch&ch&ch&ch&ch&1,1/s(.)
+c
+c                table 6:radicaux avec n
+c
+  6  1 107.4 1.1 nh2(.)
+l nh2(.)
+  6  2 100.0 2.5 ch3/nh(.)
+l ch3/nh(.)
+  6  3  91.5 2.0 n(ch3)2(.)
+l n(ch3)2(.)
+  6  4  88.0 2.0 phi/nh(.)
+l c(#1)(nh(.))&ch&ch&ch&ch&ch&1
+  6  5  87.5 2.0 phi/n(.)(ch3)
+l c(#1)&ch&ch&ch&ch&ch&1,1/n(.)/ch3
+  6  6  75.7 2.5 nf2(.)
+l nf2(.)
+  6  7  92.0 5.0 n3(.)
+l n(#1)(.)/n//n/1
+  6  8  93.3 2.0 nh2/ch2(.)
+l nh2/ch2(.)
+  6  9  87.0 2.0 ch3/nh/ch2(.)
+l ch3/nh/ch2(.)
+  6 10  84.0 2.0 n(ch3)2/ch2(.)
+l n(ch3)2/ch2(.)
+  6 11 123.8 2.0 cn(.)
+l cn(.)
+  6 12  93.0 2.5 cn/ch2(.)
+l cn/ch2(.)
+  6 13  89.9 2.3 cn/ch(ch3)(.)
+l cn/ch(.)/ch3
+  6 14  86.5 2.0 cn/c(ch3)2(.)
+l cn/c(ch3)2(.)
+  6 16 101.2 0.5 o/no2
+l o(.)/'no2'
+c
+c                table 7 halogenes
+c
+  7  3 100.0 2.0 ch2f(.)
+l ch2f(.)
+  7  4 101.0 2.0 chf2(.)
+l chf2(.)
+  7  5 106.7 1.0 cf3(.)
+l cf3(.)
+  7  6 100.9 2.0 ch2'cl'(.)
+l ch2'cl'(.)
+  7  7  99.0 0.0 ch'cl'2(.)
+l ch'cl'2(.)
+  7  8  95.8 1.0 c'cl'3(.)
+l c'cl'3(.)
+  7  9 101.6 1.0 cf2'cl'(.)
+l cf2'cl'(.)
+  7 11 102.0 2.0 ch2'br'(.)
+l ch2'br'(.)
+  7 12 103.7 2.0 ch'br'2(.)
+l ch'br'2(.)
+  7 13  96.0 1.6 c'br'3(.)
+l c'br'3(.)
+  7 14 103.0 2.0 ch2i(.)
+l ch2i(.)
+  7 15 103.0 2.0 chi2(.)
+l chi2(.)
+  7 16 102.7 0.5 cf3/cf2(.)
+l cf3/cf2(.)
+  7 17 104.0 2.0 cf3/cf2/ch2(.)
+l cf3/cf2/cf2(.)
+  7 18  99.5 2.5 ch3/cf2(.)
+l ch3/cf2(.)
+  7 19 106.7 1.1 cf3/ch2(.)
+l cf3/ch2(.)
+  7 20  95.0 2.0 c'cl'3/c'cl'2(.)
+l c'cl'3/c'cl'2(.)
+  7 21  94.0 2.0 ch'cl'2/c'cl'2(.)
+l ch'cl'2/c'cl'2(.)
+  7 28 116.5 2.0 c6f5(.)
+l c(#1)(.)&cf&cf&cf&cf&cf&1
+  7 30 103.0 0.6 i-c3f7
+l cf2(.)/cf2/cf3
+  7 31 101.8 1.5 chcl(.)/cf3
+l ch'cl'(.)/cf3
+  7 32  96.6 1.5 cclbr(.)/cf3
+l c'cl''br'(.)/cf3
+  7 33  98.3 0.0 clo(.)
+l o'cl'(.)
+  7 34  71.5 0.0 clo2(.)
+l o'cl'/o(.)
+c
+c                table 8: radicaux avec si
+c
+  8  1  90.3 0.0 'si'h3(.)
+l 'si'h3(.)
+  8  2  99.6 0.0 ch3/'si'h2(.)
+l ch3/'si'h2(.)
+  8  3  89.4 0.0 'si'h(.)(ch3)2
+l 'si'h(.)(ch3)2
+  8  4  90.3 0.0 'si'(.)(ch3)3
+l 'si'(.)(ch3)3
+  8  6  88.2 0.0 phi/'si'h2(.)
+l c(#1)&ch&ch&ch&ch&ch&1,1/'si'h2(.)
+e

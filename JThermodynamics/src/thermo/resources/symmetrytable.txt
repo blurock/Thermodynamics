@@ -1,0 +1,48 @@
+ExternalSymmetry-C(B1)(B1)(B1) GeneralMethylConnection SecondaryExternalSymmetry
+0: a3 a4 a5: X
+Symmetry: 3
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-X	CarbonAtom	ExternalSymmetry
+0: a5 a3 a4:X
+1: a2:X
+Symmetry: 4
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-3	CarbonAtom	ExternalSymmetry
+0: a2 a3 a4 a5 : 3
+Symmetry: 3
+InternalSymmetry-B(B1)(B2)(B2)(B2)	CarbonAtom	InternalSymmetry
+0: a5 a4 a3 : N
+1: a2: N
+Symmetry: 3
+ExternalSymmetry-C(B1)(B1)(B1)(B1)-L	CarbonAtom	ExternalSymmetry
+0: a2 a3 a4 a5 : L
+Symmetry: 3
+ExternalSymmetry-C(B1)(B2)(B2)(B2)-3	CarbonAtom	ExternalSymmetry
+0: a2 : 3
+1: a3 a4 a5 : N
+Symmetry: 3
+ExternalSymmetry-C(B1)(B2)(B2)(B2)-L	CarbonAtom	ExternalSymmetry
+0: a2 : L
+1: a3 a4 a5 : N
+Symmetry: 3
+ExternalSymmetry-C(B1)(B1)(B2)(B2)	CarbonAtom	ExternalSymmetry
+0: a2 a3 :X
+1: a4 a5 : X
+Symmetry: 2
+ExternalSymmetry-(B1)(B1)C=C(B2)(B2) CarbonCarbonDoubleBond ExternalSymmetry
+0: a1 a3 : X
+1: a5 a6 : X
+Symmetry: 2
+ExternalSymmetry-(B1)(B1)C=C(B1)(B1) CarbonCarbonDoubleBond ExternalSymmetry
+0: a1 a3 a5 a6 : X
+Symmetry: 2
+ExternalSymmetry-C=O(B1)(B1) AldehydeKetone ExternalSymmetry
+0: a2 a5 : X
+Symmetry: 2
+CarbonAsymetry CarbonAtom Optical Isomers
+0: a2 : N
+1: a3 : N
+2: a4 : N
+3: a5 : N
+Symmetry: 1
+ExternalSymmetry-SingleBond GeneralSingleBond ExternalSymmetry
+0: a0 a1 : X
+Symmetry: 2

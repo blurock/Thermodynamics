@@ -1,0 +1,6 @@
+CR2(#1)/CR2/CR2/1         GeneralCycloPropane   SymmetryElement
+CR2(#1)/CR//CR/1          GeneralCycloPropene   SymmetryElement
+CR2(#1)/CR2/CR2/CR2/1     GeneralCycloButane    SymmetryElement
+CR(#1)//CR/CR2/CR2/1      GeneralCycloButene    SymmetryElement
+CR(#1)//CR/CR//CR/1       GeneralCycloButadiene SymmetryElement
+CR2(#1)/CR2/O/CR2/CR2/1   GeneralFuran          SymmetryElement

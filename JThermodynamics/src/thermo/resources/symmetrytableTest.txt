@@ -1,0 +1,10 @@
+Furan-(Z1Z2)(Z3Z3)(Z1Z2)(Z3Z3)                   GeneralFuran            ExternalSymmetry
+0: a1 a11:X
+1: a2 a12:X
+2: a4 a5 a8 a9:X
+Symmetry: 2
+Furan-(Z1Z1)(Z2Z3)(Z1Z1)(Z2Z3)                   GeneralFuran            ExternalSymmetry
+0: a1 a2 a11 a12:X
+1: a4 a8:X
+2: a5 a9:X
+Symmetry: 2

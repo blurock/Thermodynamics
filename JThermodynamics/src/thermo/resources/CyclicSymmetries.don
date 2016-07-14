@@ -1,0 +1,171 @@
+ExternalCyclic-C3(Z1Z2)(Z1Z2)(Z1Z2)  GeneralCycloPropane  ExternalSymmetry
+0: a1 a4 a7:X
+1: a2 a5 a8:X
+Symmetry: 3
+ExternalCyclic-C3(Z1Z1)(Z1Z1)(Z1Z1)  GeneralCycloPropane  ExternalSymmetry
+0: a1 a2 a4 a5 a7 a8:X
+Symmetry: 6
+ExternalCyclic-C3(Z3Z3)(Z1Z1)(Z1Z1)         GeneralCycloPropane  ExternalSymmetry
+0: a1 a2:X
+1: a4 a5 a7 a8:X
+Symmetry: 2
+ExternalCyclic-C3(Z3Z3)(Z1Z2)(Z1Z2)         GeneralCycloPropane  ExternalSymmetry
+0: a1 a2:X
+1: a4 a7:X
+2: a5 a8:X
+Symmetry: 2
+ExternalCyclic-C3(Z1)(Z2Z2)(Z1)             GeneralCycloPropene ExternalSymmetry
+0: a1 a2:X
+1: a4 a6:X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)4                   GeneralCycloButane   ExternalSymmetry
+0: a1 a2 a4 a5 a7 a8 a10 a11:X
+Symmetry: 8
+ExternalCyclic-C4(Z1Z2)4                   GeneralCycloButane   ExternalSymmetry
+0: a2 a5 a8 a11:X
+1: a1 a4 a7 a10:X
+Symmetry: 4
+ExternalCyclic-C4(Z1Z1)(Z2Z2)3             GeneralCycloButane   ExternalSymmetry
+0: a1 a2:X
+1: a4 a5 a7 a8 a10 a11:X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)2(Z3Z3)2            GeneralCycloButane   ExternalSymmetry
+0: a1 a2 a4 a5:X
+1: a7 a8 a10 a11:X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)2(Z3Z4)2            GeneralCycloButane   ExternalSymmetry
+0: a1 a2 a4 a5:X
+1: a7 a10:X
+2: a8 a11:X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)2(Z2Z2)2            GeneralCycloButane   ExternalSymmetry
+0: a1 a2 a10 a11:X
+1: a4 a5 a7 a8 :X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z2)2(Z3Z4)2            GeneralCycloButane   ExternalSymmetry
+0: a1 a10:X
+1: a2 a11:X
+2: a4 a7:X
+3: a5 a8 :X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)(Z3Z3)(Z2Z2)2       GeneralCycloButane   ExternalSymmetry
+0: a1 a2:X
+1: a4 a5 a7 a8:X
+2: a10 a11:X
+Symmetry: 2
+ExternalCyclic-C4(Z1Z1)(Z3Z3)(Z4Z5)2       GeneralCycloButane   ExternalSymmetry
+0: a1 a2:X
+1: a4 a7:X
+2: a5 a8:X
+3: a10 a11:X
+Symmetry: 2
+CyclicButene-C4(Z1)(Z1)(Z3Z3)2               GeneralCycloButene   ExternalSymmetry
+0: a1 a3:X
+1: a5 a6 a8 a9:X
+Symmetry: 2
+CyclicButene-C4(Z1)(Z1)(Z3Z4)2               GeneralCycloButene   ExternalSymmetry
+0: a1 a3:X
+1: a5 a8:X
+2: a6 a9:X
+Symmetry: 2
+CyclicButadienene-C4(Z1)4               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a3 a5 a7:L
+Symmetry: 8
+CyclicButadienene-C4(Z1)4               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a3 a5 a7:2
+Symmetry: 8
+CyclicButadienene-C4(Z1)4               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a3 a5 a7:X
+Symmetry: 4
+CyclicButadienene-C4(sL)(s2)3               GeneralCycloButadiene   ExternalSymmetry
+0: a1:L 
+1: a3 a5 a7:L
+Symmetry: 2
+CyclicButadienene-C4(s2)(sL)3               GeneralCycloButadiene   ExternalSymmetry
+0: a1:2 
+1: a3 a5 a7:L
+Symmetry: 2
+CyclicButadienene-C4(sL)(s2)3               GeneralCycloButadiene   ExternalSymmetry
+0: a1:L 
+1: a3 a5 a7:2
+Symmetry: 2
+CyclicButadienene-C4(s2)(s2)3               GeneralCycloButadiene   ExternalSymmetry
+0: a1:2 
+1: a3 a5 a7:2
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(Z2)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a3:X 
+1: a5 a7:X
+Symmetry: 2
+CyclicButadienene-C4(Z1L)2(Z3L)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:L 
+1: a3 a7:L
+Symmetry: 4
+CyclicButadienene-C4(Z1s2)2(Z3L)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:2 
+1: a3 a7:L
+Symmetry: 4
+CyclicButadienene-C4(Z1L)2(Z3s2)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:L 
+1: a3 a7:2
+Symmetry: 4
+CyclicButadienene-C4(Z1s2)2(Z3s2)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:2 
+1: a3 a7:2
+Symmetry: 4
+CyclicButadienene-C4(Z1)2(Z3)2               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3 a7:X
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(L)(L)               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3:L
+2: a7:L
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(s2)(L)               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3:2
+2: a7:L
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(L)(s2)               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3:L
+2: a7:2
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(s2)(s2)               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3:L
+2: a7:L
+Symmetry: 2
+CyclicButadienene-C4(Z1)2(Z2)(Z3)               GeneralCycloButadiene   ExternalSymmetry
+0: a1 a5:X 
+1: a3:L
+2: a7:L
+Symmetry: 2
+Furan-(Z1Z1)4                                    GeneralFuran            ExternalSymmetry
+0: a1,a2,a4,a5,a8,a9,a11,a12:X
+Symmetry: 2
+Furan-(Z1Z1)(Z2Z2)(Z1Z1)(Z2Z2)                   GeneralFuran            ExternalSymmetry
+0: a1,a2,a8,a9:X
+1: a4,a5,a11,a12:X
+Symmetry: 2
+Furan-(Z1Z2)(Z3Z3)(Z1Z2)(Z3Z3)                   GeneralFuran            ExternalSymmetry
+0: a1,a8:X
+1: a2,a9:X
+2: a4,a5,a11,a12:X
+Symmetry: 2
+Furan-(Z1Z2)(Z3Z4)(Z1Z2)(Z3Z4)                   GeneralFuran            ExternalSymmetry
+0: a1,a8:X
+1: a2,a9:X
+2: a4,a11:X
+3: a5,a12:X
+Symmetry: 2
+Furan-(Z1Z1)(Z2Z3)(Z1Z1)(Z2Z3)                   GeneralFuran            ExternalSymmetry
+0: a1,a2,a8,a9:X
+1: a4,a11:X
+2: a5,a12:X
+Symmetry: 2
+Furan-(Z1Z2)4                                    GeneralFuran            ExternalSymmetry
+0: a2,a5,a9,a12:X
+1: a1,a4,a8,a11:X
+Symmetry: 2
