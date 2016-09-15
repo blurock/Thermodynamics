@@ -10,7 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Iterator;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.structure.AtomCounts;
@@ -31,7 +32,7 @@ public class SQLMolecule {
         connect = c;
     }
     public void addToDatabase(Object structure, String src) throws SQLException, CDKException {
-        Molecule molecule = (Molecule) structure;
+    	AtomContainer molecule = (AtomContainer) structure;
         String name = molecule.getID();
         deleteElement(name);
         AtomCounts counts = new AtomCounts(molecule);
@@ -69,7 +70,7 @@ public class SQLMolecule {
         return cmlstruct;
     }
 
-    public String findInDatabase(Molecule molecule) throws SQLException, CDKException {
+    public String findInDatabase(AtomContainer molecule) throws SQLException, CDKException {
         SQLAtomCounts sqlcounts = new SQLAtomCounts(connect);
 
         AtomCounts counts = new AtomCounts(molecule);
@@ -82,7 +83,7 @@ public class SQLMolecule {
             i++;
             StructureAsCML cmlstruct = findMoleculeStructureInDatabase(names[i]);
             if(cmlstruct != null) {
-                Molecule dmolecule = cmlstruct.getMolecule();
+            	AtomContainer dmolecule = cmlstruct.getMolecule();
                 notfound = !match.equals(molecule,dmolecule);
             }
         }

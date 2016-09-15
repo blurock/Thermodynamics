@@ -13,9 +13,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.config.IsotopeFactory;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IBond.Order;
@@ -59,7 +59,7 @@ public class TestMoleculeNormalization {
         try {
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("H");
             Atom at3 = new Atom("H");
@@ -83,7 +83,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -104,14 +104,14 @@ public class TestMoleculeNormalization {
         try {
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             mol.addAtom(at1);
 
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -133,7 +133,7 @@ public class TestMoleculeNormalization {
         try {
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("O");
             Atom at3 = new Atom("H");
@@ -153,7 +153,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -175,7 +175,7 @@ public class TestMoleculeNormalization {
         try {
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("O");
             mol.addAtom(at1);
@@ -187,7 +187,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -207,7 +207,7 @@ public class TestMoleculeNormalization {
         System.out.println("=========================== Normalize Carbon single bond with Unspecified =============================");
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             IsotopeFactory.getInstance(DefaultChemObjectBuilder.getInstance()).configure(at1);
             Atom at2 = new Atom("Du");
@@ -232,7 +232,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -252,7 +252,7 @@ public class TestMoleculeNormalization {
         System.out.println("=========================== Normalize Carbon Double bond with Unspecified =============================");
 
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             IsotopeFactory.getInstance(DefaultChemObjectBuilder.getInstance()).configure(at1);
             Atom at2 = new Atom("Du");
@@ -273,7 +273,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -292,7 +292,7 @@ public class TestMoleculeNormalization {
          System.out.println("=========================== Normalize Aromatic Ring =============================");
        
         try {
-                    Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("N");
             Atom atm2 = new Atom("C");
             Atom atm3 = new Atom("C");
@@ -324,7 +324,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {
@@ -344,7 +344,7 @@ public class TestMoleculeNormalization {
          System.out.println("=========================== Normalize Aromatic Ring =============================");
        
         try {
-                    Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("C");
             Atom atm2 = new Atom("Du");
             Atom atm3 = new Atom("Du");
@@ -376,7 +376,7 @@ public class TestMoleculeNormalization {
             StructureAsCML cml = new StructureAsCML(mol);
             NormalizeMoleculeFromCMLStructure normalize = new NormalizeMoleculeFromCMLStructure();
 
-            Molecule normed = normalize.getNormalizedMolecule(cml);
+            AtomContainer normed = normalize.getNormalizedMolecule(cml);
         } catch (CDKException ex) {
             Logger.getLogger(TestMoleculeNormalization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (OptionalDataException ex) {

@@ -7,7 +7,6 @@ package thermo.data.structure.structure.symmetry;
 
 import java.sql.SQLException;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -42,7 +41,7 @@ double gasConstant;
             throw new ThermodynamicException(ex.toString());
         }
     }
-    public void calculate(Molecule mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
+    public void calculate(AtomContainer mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
         try {
             double opticalsymmetry = calculateOpticalSymmetry(mol);
             if (opticalsymmetry > 0.0) {

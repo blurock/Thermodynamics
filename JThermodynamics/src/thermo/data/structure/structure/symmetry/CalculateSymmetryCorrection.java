@@ -5,8 +5,10 @@
 
 package thermo.data.structure.structure.symmetry;
 
-import org.openscience.cdk.Molecule;
 import thermo.data.benson.DB.ThermoSQLConnection;
+
+import org.openscience.cdk.AtomContainer;
+
 import thermo.data.benson.SetOfBensonThermodynamicBase;
 import thermo.exception.ThermodynamicException;
 
@@ -25,12 +27,12 @@ public class CalculateSymmetryCorrection extends CalculateSymmetryCorrectionInte
             internal = new CalculateInternalSymmetryCorrection(connect);
             external = new CalculateExternalSymmetryCorrection(connect);
     }
-    public void calculate(Molecule mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
+    public void calculate(AtomContainer mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
             optical.calculate(mol, corrections);
             internal.calculate(mol, corrections);
             external.calculate(mol, corrections);
     }
-    void calculate(Molecule R, Molecule RH, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
+    void calculate(AtomContainer R, AtomContainer RH, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
         SetOfBensonThermodynamicBase correctionsR = new SetOfBensonThermodynamicBase();
         SetOfBensonThermodynamicBase correctionsRH = new SetOfBensonThermodynamicBase();
         this.calculate(RH, correctionsRH);

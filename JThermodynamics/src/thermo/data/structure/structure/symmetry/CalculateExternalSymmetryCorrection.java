@@ -10,13 +10,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
 import thermo.data.structure.structure.DB.SQLSubstituteBackMetaAtomIntoMolecule;
 import thermo.data.structure.structure.StructureAsCML;
-import thermo.data.structure.structure.SubstituteBackMetaAtomsIntoMolecule;
 import thermo.data.structure.structure.matching.SubstituteLinearStructures;
 import thermo.data.structure.structure.symmetry.DB.SQLSetOfSymmetryDefinitions;
 import thermo.exception.ThermodynamicException;
@@ -63,10 +61,10 @@ public class CalculateExternalSymmetryCorrection extends CalculateSymmetryCorrec
             throw new ThermodynamicException(ex.toString());
         }
     }
-    public void calculate(Molecule mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
+    public void calculate(AtomContainer mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
         try {
             StructureAsCML cmlstruct = new StructureAsCML(mol);
-            Molecule newmolecule = substitutions.substitute(cmlstruct);
+            AtomContainer newmolecule = substitutions.substitute(cmlstruct);
             substituteBack.substitute(newmolecule);
             StructureAsCML cmlnew = new StructureAsCML(newmolecule);
             determineTotal.setSetOfCorrections(corrections);

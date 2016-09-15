@@ -8,15 +8,13 @@ package thermo.data.structure.structure.matching;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.isomorphism.mcss.RMap;
 import thermo.data.structure.structure.MetaAtomDefinition;
-import thermo.data.structure.structure.StructureAsCML;
 
 /** Substitute a meta atom into a molecule.
  *
@@ -35,7 +33,7 @@ import thermo.data.structure.structure.StructureAsCML;
 public class SubstituteMetaAtom {
     
     MetaAtomDefinition metaAtom;
-    Molecule molecule;
+    AtomContainer molecule;
     GetSubstructureMatches matches;
     private int priority;
     
@@ -62,7 +60,7 @@ public class SubstituteMetaAtom {
      * Each {@link MetaAtomSubstitutions} is then substituted within the molecule in {@lnk substituteMetaAtoms}.
      *
      */
-    public void substitute(Molecule molecule) throws CDKException {
+    public void substitute(AtomContainer molecule) throws CDKException {
         this.molecule = molecule;
         //System.out.println("Number of Atoms:" + molecule.getAtomCount());
         List< List<RMap> > bondmap = matches.getAtomMatches(molecule, metaAtom.getMolecule()); 
@@ -136,7 +134,7 @@ public class SubstituteMetaAtom {
      *
      * Simply loop through the atoms and eliminate them from the molecule
      */
-    private void eliminateAtomsFromMolecule(Molecule molecule, List<IAtom> atoms) {
+    private void eliminateAtomsFromMolecule(AtomContainer molecule, List<IAtom> atoms) {
         Iterator<IAtom> i = atoms.iterator();
         while(i.hasNext()) {
             IAtom atm = i.next();
@@ -150,7 +148,7 @@ public class SubstituteMetaAtom {
      *
      * simply loop through the bonds and remove it from the molecule bond list
      */
-    private void eliminateBondsFromMolecule(Molecule molecule, List<IBond> subbonds) {
+    private void eliminateBondsFromMolecule(AtomContainer molecule, List<IBond> subbonds) {
         Iterator<IBond> i = subbonds.iterator();
         while(i.hasNext()) {
             IBond bond = i.next();
@@ -168,7 +166,7 @@ public class SubstituteMetaAtom {
      * Determine which atom in the bond is to the original set of atoms making up
      * the meta atom and replace it with the new meta atom.
      */
-    private void modifyConnectionBonds(Molecule molecule, IAtom matm, List<IAtom> atoms, List<IBond> connections) {
+    private void modifyConnectionBonds(AtomContainer molecule, IAtom matm, List<IAtom> atoms, List<IBond> connections) {
         Iterator<IBond> i = connections.iterator();
         while(i.hasNext()) {
             IBond bond = i.next();

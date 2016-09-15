@@ -17,7 +17,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
@@ -59,7 +58,7 @@ public class TestStructuresFromSymmetry {
             //StructureAsCML cmlstruct = GenerateStructures.createPropane();
             NancyLinearFormToMolecule nancy = new NancyLinearFormToMolecule(connect);
             //Molecule mol = nancy.convert("ch2(c///ch)2");
-            Molecule mol = nancy.convert("ch3ch2ch3");
+            AtomContainer mol = nancy.convert("ch3ch2ch3");
             StructureAsCML cml = new StructureAsCML(mol);
 
             SQLSymmetryDefinition sqlSymmetry = new SQLSymmetryDefinition(connect);
@@ -75,7 +74,7 @@ public class TestStructuresFromSymmetry {
             Iterator<AtomContainer> iter = subs.iterator();
             while(iter.hasNext()) {
                 AtomContainer sub = iter.next();
-                Molecule submol = new Molecule(sub);
+                AtomContainer submol = new AtomContainer(sub);
                 StructureAsCML cmlstruct = new StructureAsCML(submol);
                 System.out.println(cmlstruct.getCmlStructureString());
             }

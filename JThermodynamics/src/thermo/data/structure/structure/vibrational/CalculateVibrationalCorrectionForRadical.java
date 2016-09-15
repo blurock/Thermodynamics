@@ -10,7 +10,8 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.StringTokenizer;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -64,7 +65,7 @@ public class CalculateVibrationalCorrectionForRadical {
      * @throws CDKException
      * @throws IOException
      */
-    public SetOfBensonThermodynamicBase calculate(Molecule mol) throws NotARadicalException, SQLException, CDKException, IOException {
+    public SetOfBensonThermodynamicBase calculate(AtomContainer mol) throws NotARadicalException, SQLException, CDKException, IOException {
         SetOfBensonThermodynamicBase corrections = new SetOfBensonThermodynamicBase();
         return calculate(mol,corrections);
     }
@@ -97,13 +98,13 @@ public class CalculateVibrationalCorrectionForRadical {
      * @throws CDKException
      * @throws IOException
      */
-    public SetOfBensonThermodynamicBase calculate(Molecule mol,SetOfBensonThermodynamicBase corrections) throws NotARadicalException, SQLException, CDKException, IOException {
+    public SetOfBensonThermodynamicBase calculate(AtomContainer mol,SetOfBensonThermodynamicBase corrections) throws NotARadicalException, SQLException, CDKException, IOException {
         AddHydrogenToSingleRadical formRH = new AddHydrogenToSingleRadical();
-        Molecule RH = formRH.convert(mol);
+        AtomContainer RH = formRH.convert(mol);
         return calculate(mol,RH,corrections);
         }
 
-        public SetOfBensonThermodynamicBase calculate(Molecule mol,Molecule RH, SetOfBensonThermodynamicBase corrections) throws NotARadicalException, SQLException, CDKException, IOException {
+        public SetOfBensonThermodynamicBase calculate(AtomContainer mol,AtomContainer RH, SetOfBensonThermodynamicBase corrections) throws NotARadicalException, SQLException, CDKException, IOException {
 
             //System.out.println(substitute.toString());
             System.out.println("-----------------------------------------------------------");

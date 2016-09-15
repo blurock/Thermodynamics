@@ -5,7 +5,7 @@
 
 package thermo.data.structure.structure;
 
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 
 /**
@@ -23,7 +23,7 @@ public class DatabaseMolecule {
         CMLStructure = cmlstruct;
         Source = src;
     }
-    public DatabaseMolecule(Molecule mol, String src) throws CDKException {
+    public DatabaseMolecule(AtomContainer mol, String src) throws CDKException {
         StructureAsCML cmlstruct = new StructureAsCML(mol);
         CMLStructure = cmlstruct.getCmlStructureString();
         Source = src;

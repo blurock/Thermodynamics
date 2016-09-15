@@ -11,7 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.structure.structure.MetaAtomDefinition;
 import thermo.data.structure.structure.NormalizeMoleculeFromCMLStructure;
@@ -60,7 +60,7 @@ public class TestMetaAtomSubstitution {
             
             SubstituteMetaAtom substitute = new SubstituteMetaAtom(carbonmeta);
             NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-            Molecule molecule = norm.getNormalizedMolecule(ethane);
+            AtomContainer molecule = norm.getNormalizedMolecule(ethane);
 
             substitute.substitute(molecule);
              StructureAsCML newcml = new StructureAsCML(molecule);
@@ -88,7 +88,7 @@ public class TestMetaAtomSubstitution {
             
             SubstituteMetaAtom substitute = new SubstituteMetaAtom(carbonmeta);
             NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-            Molecule molecule = norm.getNormalizedMolecule(ch3cho);
+            AtomContainer molecule = norm.getNormalizedMolecule(ch3cho);
 
             substitute.substitute(molecule);
             
@@ -117,7 +117,7 @@ public class TestMetaAtomSubstitution {
             
             SubstituteMetaAtom substitute = new SubstituteMetaAtom(carbonmeta);
             NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-            Molecule molecule = norm.getNormalizedMolecule(ethane);
+            AtomContainer molecule = norm.getNormalizedMolecule(ethane);
 
             substitute.substitute(molecule);
              StructureAsCML newcml = new StructureAsCML(molecule);
@@ -145,7 +145,7 @@ public class TestMetaAtomSubstitution {
             set.addDefinition("c", carbon);
 
             StructureAsCML ch3cho = GenerateStructures.createCH3CHO();
-            Molecule mol = set.substitute(ch3cho);
+            AtomContainer mol = set.substitute(ch3cho);
 
             StructureAsCML molcml = new StructureAsCML(mol);
             System.out.println(molcml.getCmlStructureString());

@@ -13,8 +13,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.isomorphism.mcss.RMap;
 import thermo.data.structure.structure.NormalizeMoleculeFromCMLStructure;
@@ -52,7 +52,7 @@ public class TestStructureMatching {
     @Test
     public void MethaneInMethane() {
         // Build Single Bonded Carbon
-        Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
         Atom at1 = new Atom("C");
         Atom at2 = new Atom("H");
         Atom at3 = new Atom("H");
@@ -80,7 +80,7 @@ public class TestStructureMatching {
     public void testGeneralCarbonInAlkane() throws CDKException, IOException {
         try {
             // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("Du");
             Atom at3 = new Atom("Du");
@@ -101,7 +101,7 @@ public class TestStructureMatching {
             mol.addBond(bnd3);
             mol.addBond(bnd4);
 
-            Molecule ethane = new Molecule();
+            AtomContainer ethane = new AtomContainer();
             Atom eat1 = new Atom("C");
             Atom eat2 = new Atom("C");
             Atom eat3 = new Atom("H");
@@ -138,8 +138,8 @@ public class TestStructureMatching {
             StructureAsCML cmlethane = new StructureAsCML(ethane);
 
             NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-            Molecule ncarbon = norm.getNormalizedMolecule(cmlcarbon);
-            Molecule nethane = norm.getNormalizedMolecule(cmlethane);
+            AtomContainer ncarbon = norm.getNormalizedMolecule(cmlcarbon);
+            AtomContainer nethane = norm.getNormalizedMolecule(cmlethane);
 
             GetSubstructureMatches matches = new GetSubstructureMatches();
             //getAndPrintSingleAtomMatches(nethane,ncarbon);
@@ -153,7 +153,7 @@ public class TestStructureMatching {
         }
     }
 
-    private void getAndPrintAtomMatches(Molecule mol1, Molecule mol2) {
+    private void getAndPrintAtomMatches(AtomContainer mol1, AtomContainer mol2) {
         GetSubstructureMatches match = new GetSubstructureMatches();
         try {
             List<List<RMap>> matches = match.getAtomMatches(mol1, mol2);
@@ -173,7 +173,7 @@ public class TestStructureMatching {
         }
 
     }
-    private void getAndPrintBondMatches(Molecule mol1, Molecule mol2) {
+    private void getAndPrintBondMatches(AtomContainer mol1, AtomContainer mol2) {
         GetSubstructureMatches match = new GetSubstructureMatches();
         try {
             List<List<RMap>> matches = match.getBondMatches(mol1, mol2);
@@ -194,7 +194,7 @@ public class TestStructureMatching {
 
     }
 
-    private void getAndPrintMatcheForAtom(Molecule mol1, Molecule mol2, int atmnum) {
+    private void getAndPrintMatcheForAtom(AtomContainer mol1, AtomContainer mol2, int atmnum) {
         GetSubstructureMatches match = new GetSubstructureMatches();
         try {
              Integer[] seta = match.getMatchesForAtom(mol1, mol2, atmnum);

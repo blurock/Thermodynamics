@@ -17,8 +17,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.symmetry.utilities.DetermineSetOfSymmetryAssignments;
@@ -61,7 +61,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
     public void TestWithEthane() {
         try {
             StructureAsCML ethane = GenerateStructures.createEthane();
-            Molecule mol = new Molecule();
+            AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("C");
             Atom atm2 = new Atom("Du");
             Atom atm3 = new Atom("Du");
@@ -93,7 +93,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
             DetermineSetOfSymmetryAssignments determine = new DetermineSetOfSymmetryAssignments(symname, molCML, pairlist,assign);
             System.out.println("--------------------------------------------------------");
             System.out.println(determine.toString());
-            Molecule e = ethane.getMolecule();
+            AtomContainer e = ethane.getMolecule();
             List<SetOfSymmetryAssignments> sets = determine.findAllSetsOfSymmetryAssignments(e);
             
             Iterator<SetOfSymmetryAssignments> i = sets.iterator();
@@ -124,7 +124,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
         try {
             StructureAsCML c4h10 = GenerateStructures.create2methylpropane();
             StructureAsCML ethane = GenerateStructures.createEthane();
-            Molecule mol = new Molecule();
+            AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("C");
             Atom atm2 = new Atom("Du");
             Atom atm3 = new Atom("Du");
@@ -156,7 +156,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
             DetermineSetOfSymmetryAssignments determine = new DetermineSetOfSymmetryAssignments(symname, molCML, pairlist,assign);
             System.out.println("--------------------------------------------------------");
             System.out.println(determine.toString());
-            Molecule e = c4h10.getMolecule();
+            AtomContainer e = c4h10.getMolecule();
             List<SetOfSymmetryAssignments> sets = determine.findAllSetsOfSymmetryAssignments(e);
             
             Iterator<SetOfSymmetryAssignments> i = sets.iterator();
@@ -184,7 +184,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
     public void TestWithButane() {
         try {
             StructureAsCML c4h10 = GenerateStructures.createFromSmiles("CCCC");
-            Molecule mol = new Molecule();
+            AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("C");
             Atom atm2 = new Atom("C");
             Atom atm3 = new Atom("Du");
@@ -207,7 +207,7 @@ public class TestFindAllSetsOfSymmetryAssignments {
             DetermineSetOfSymmetryAssignments determine = new DetermineSetOfSymmetryAssignments(symname, molCML, pairlist,assign);
             System.out.println("--------------------------------------------------------");
             System.out.println(determine.toString());
-            Molecule e = c4h10.getMolecule();
+            AtomContainer e = c4h10.getMolecule();
             List<SetOfSymmetryAssignments> sets = determine.findAllSetsOfSymmetryAssignments(e);
             
             Iterator<SetOfSymmetryAssignments> i = sets.iterator();

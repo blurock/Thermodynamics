@@ -10,8 +10,8 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IBond.Order;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -29,7 +29,7 @@ public class TestStructureAsCML {
      */
     public static void main(String[] args) {
 
-        Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
         mol.setID("Aldehyde");
         Atom at1 = new Atom("C");
         Atom at2 = new Atom("H");
@@ -52,7 +52,7 @@ public class TestStructureAsCML {
             StructureAsCML cml = new StructureAsCML(mol);
             System.out.println(cml.getCmlStructureString());
 
-            Molecule mol1 = cml.getMolecule();
+            AtomContainer mol1 = cml.getMolecule();
             ThermoSQLConnection connect = new ThermoSQLConnection();
 
             if (connect.connect()) {
@@ -63,7 +63,7 @@ public class TestStructureAsCML {
                 HashSet vec = sqlcml.retrieveStructuresFromDatabase(mol.getID());
                 Iterator<StructureAsCML> iter = vec.iterator();
                 StructureAsCML cml2 = iter.next();
-                Molecule mol2 = cml2.getMolecule();
+                AtomContainer mol2 = cml2.getMolecule();
                 System.out.println("ID;         " + mol2.getID());
                 System.out.println("Atom Count: " + mol2.getAtomCount());
                 System.out.println("Bond Count: " + mol2.getBondCount());

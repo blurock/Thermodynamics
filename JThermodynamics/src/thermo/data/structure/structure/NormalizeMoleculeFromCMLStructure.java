@@ -7,12 +7,10 @@ package thermo.data.structure.structure;
 import java.io.IOException;
 import java.util.Iterator;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
-//import org.openscience.cdk.aromaticity.HueckelAromaticityDetector;
-//import org.openscience.cdk.atomtype.HybridizationMatcher;
 import org.openscience.cdk.config.IsotopeFactory;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
@@ -39,8 +37,8 @@ public class NormalizeMoleculeFromCMLStructure {
         return ans;
     }
     
-    public Molecule getNormalizedMolecule(StructureAsCML cmlstruct) throws CDKException, ClassNotFoundException, IOException {
-        Molecule mol = cmlstruct.getMolecule();
+    public AtomContainer getNormalizedMolecule(StructureAsCML cmlstruct) throws CDKException, ClassNotFoundException, IOException {
+    	AtomContainer mol = cmlstruct.getMolecule();
         
 
 
@@ -88,14 +86,14 @@ public class NormalizeMoleculeFromCMLStructure {
         return mol;
     }
 
-    private void initialNormalizationOfAtoms(Molecule mol) {
+    private void initialNormalizationOfAtoms(AtomContainer mol) {
         for (int i = 0; i < mol.getAtomCount(); i++) {
             Atom atm = (Atom) mol.getAtom(i);
             atm.setImplicitHydrogenCount(0);
         }
     }
 
-    private void initialNormalizationOfBonds(Molecule mol) {
+    private void initialNormalizationOfBonds(AtomContainer mol) {
         AromaticQueryBond queryaromatic = new AromaticQueryBond();
         for (int i = 0; i < mol.getBondCount(); i++) {
             Bond bnd = (Bond) mol.getBond(i);
@@ -113,7 +111,7 @@ public class NormalizeMoleculeFromCMLStructure {
         }
     }
 
-    private void setAromaticity(Molecule mol) throws CDKException {
+    private void setAromaticity(AtomContainer mol) throws CDKException {
         Iterator<IBond> bonds = mol.bonds().iterator();
         while(bonds.hasNext()) {
             IBond bond = bonds.next();

@@ -8,9 +8,10 @@ package thermo.data.benson;
 import Jama.Matrix;
 import javax.vecmath.GMatrix;
 import javax.vecmath.GVector;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
+
 import thermo.exception.ThermodynamicComputeException;
-import thermo.properties.ChemicalConstants;
 
 
 /**
@@ -41,7 +42,7 @@ public class NASAPolynomialFromBenson extends NASAPolynomial {
     }
     public NASAPolynomialFromBenson() {
     }
-    public NASAPolynomialFromBenson(BensonThermodynamicBase b, Molecule molecule) throws ThermodynamicComputeException {
+    public NASAPolynomialFromBenson(BensonThermodynamicBase b, AtomContainer molecule) throws ThermodynamicComputeException {
         fillInData(b);
         fillInMoleculeProperties(molecule);
     }

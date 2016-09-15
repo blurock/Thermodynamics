@@ -19,7 +19,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.thergas.BuildThermoForMolecules;
-import static org.junit.Assert.*;
 
 /**
  *

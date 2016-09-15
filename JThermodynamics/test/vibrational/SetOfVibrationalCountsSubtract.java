@@ -11,14 +11,12 @@ import java.util.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
-import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.vibrational.SetOfVibrationalStructureCounts;
 import thermo.data.structure.structure.vibrational.SubstituteVibrationalStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -44,8 +42,8 @@ public class SetOfVibrationalCountsSubtract {
             ThermoSQLConnection connect = new ThermoSQLConnection();
             connect.connect();
             NancyLinearFormToMolecule nancylinear = new NancyLinearFormToMolecule(connect);
-            Molecule butene = nancylinear.convert("ch2//ch/ch2/ch3");
-            Molecule buteneradical = nancylinear.convert("ch(.)//ch/ch2/ch3");
+            AtomContainer butene = nancylinear.convert("ch2//ch/ch2/ch3");
+            AtomContainer buteneradical = nancylinear.convert("ch(.)//ch/ch2/ch3");
 
             SubstituteVibrationalStructures substitute = new SubstituteVibrationalStructures(connect);
             SetOfVibrationalStructureCounts buteneradicalcounts = substitute.findSubstitutions(buteneradical);

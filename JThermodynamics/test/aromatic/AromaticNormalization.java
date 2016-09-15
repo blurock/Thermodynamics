@@ -17,8 +17,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.inchi.InChIGeneratorFactory;
@@ -67,7 +67,7 @@ public class AromaticNormalization {
             String aromaticS = "InChI=1S/C10H10/c1-2-6-10-8-4-3-7-9(10)5-1/h1-3,5-7H,4,8H2";
             InChIGeneratorFactory inchifactory = InChIGeneratorFactory.getInstance();
             InChIToStructure istruct = inchifactory.getInChIToStructure(aromaticS, DefaultChemObjectBuilder.getInstance());
-            Molecule molecule = new Molecule(istruct.getAtomContainer());
+            AtomContainer molecule = new AtomContainer(istruct.getAtomContainer());
             StructureAsCML cmlorig = new StructureAsCML(molecule);
             System.out.println("Original Aromatic Molecule:\n" + cmlorig.getCmlStructureString());
 
@@ -92,7 +92,7 @@ public class AromaticNormalization {
                     System.out.println("AromaticCarbon\n" + info.getCmlStructureString());
 
                     //Molecule aromaticCarbon = info.getMolecule();
-                    Molecule mol = info.getMolecule();
+                    AtomContainer mol = info.getMolecule();
                     MetaAtomDefinition def = new MetaAtomDefinition("c/b", mol);
                     SubstituteMetaAtom sub = new SubstituteMetaAtom(def);
 
@@ -140,7 +140,7 @@ public class AromaticNormalization {
             if(connected) {
 
             NancyLinearFormToMolecule nancyFormToMolecule = new NancyLinearFormToMolecule(connect);
-            Molecule molecule = nancyFormToMolecule.convert(nancy);
+            AtomContainer molecule = nancyFormToMolecule.convert(nancy);
 
             CDKHueckelAromaticityDetector aromatic = new CDKHueckelAromaticityDetector();
             AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(molecule);
@@ -156,7 +156,7 @@ public class AromaticNormalization {
                     System.out.println("AromaticCarbon\n" + info.getCmlStructureString());
 
                     //Molecule aromaticCarbon = info.getMolecule();
-                    Molecule mol = info.getMolecule();
+                    AtomContainer mol = info.getMolecule();
                     MetaAtomDefinition def = new MetaAtomDefinition("c/b", mol);
                     SubstituteMetaAtom sub = new SubstituteMetaAtom(def);
 

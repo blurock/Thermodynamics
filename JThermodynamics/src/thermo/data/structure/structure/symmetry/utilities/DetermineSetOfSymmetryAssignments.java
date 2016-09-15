@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -307,7 +306,7 @@ public class DetermineSetOfSymmetryAssignments extends SymmetryDefinition {
             RMap map = imap.next();
             if (map.getId1() == molid) {
                 notfound = false;
-                Molecule mol = getMolecule();
+                AtomContainer mol = getMolecule();
                 if (mol != null) {
                     int i = map.getId2();
                     IAtom atm = mol.getAtom(i);

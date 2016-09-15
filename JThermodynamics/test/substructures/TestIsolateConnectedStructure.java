@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -123,7 +123,7 @@ public class TestIsolateConnectedStructure {
             IAtom secondcarbon = propane.getAtom(1);
             IAtomContainer substructure = isolate.IsolateConnectedStructure(propane, firstcarbon, secondcarbon);
             System.out.println("*#Atoms: " + substructure.getAtomCount() + ", #Bonds: " + substructure.getBondCount());
-            Molecule mol = new Molecule(substructure);
+            AtomContainer mol = new AtomContainer(substructure);
             StructureAsCML cmlsub = new StructureAsCML(mol);
             System.out.println(cmlsub.getCmlStructureString());
         } catch (CDKException ex) {

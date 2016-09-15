@@ -15,7 +15,6 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -100,7 +99,7 @@ public class ReadDisassociationData {
                 System.out.println("Form Structure: " + nameS + "\t" + nancy );
 
                 NancyLinearFormToMolecule nancyform = new NancyLinearFormToMolecule(connection);
-                Molecule molecule = nancyform.convert(nancy);
+                AtomContainer molecule = nancyform.convert(nancy);
                 substitute.substitute(molecule);
                 molecule.setID(nameS);
                 Double energyD = new Double(energyS);

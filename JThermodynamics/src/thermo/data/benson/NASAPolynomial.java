@@ -5,12 +5,13 @@
 package thermo.data.benson;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
+
 import thermo.data.structure.structure.AtomCounts;
 import thermo.exception.ThermodynamicComputeException;
 import thermo.properties.ChemicalConstants;
@@ -24,7 +25,6 @@ public class NASAPolynomial implements ThermodynamicInformation {
 
     String reference;
 
-    ArrayList molecules = null;
     /** The name of the molecule
      */
     public String name;
@@ -174,7 +174,6 @@ public class NASAPolynomial implements ThermodynamicInformation {
             atomcnt[3] = convertInt(l1.substring(41, 44));
 
             phase = l1.substring(44, 44);
-            //System.out.println(l2.substring(0, 15));
             
             lowerT = parseDouble(l1.substring(45, 55));
             upperT = parseDouble(l1.substring(55, 65));
@@ -197,8 +196,8 @@ public class NASAPolynomial implements ThermodynamicInformation {
             throw new IOException("Error in reading NASA polynomial: \n" + ex.toString() + "\n " + l1);
         }
     }
-
-    int convertInt(String str) throws NumberFormatException {
+    
+    int convertInt(String str) throws IOException {
         str = str.trim();
         int cnt = 0;
         if (str.length() != 0) {
@@ -207,11 +206,19 @@ public class NASAPolynomial implements ThermodynamicInformation {
         return cnt;
     }
 
-    double parseDouble(String str) throws NumberFormatException {
+    double parseDouble(String str) throws IOException {
         str = str.trim();
+        if(str.contains("e ")) {
+        	str = str.replace("e ", "e+");
+        	System.out.println("Replaced to: '" + str + "'");
+        }
         double cnt = 0;
         if (str.length() != 0) {
-            cnt = Double.parseDouble(str);
+        	try {
+        	cnt = Double.parseDouble(str);
+        	} catch(NumberFormatException ex) {
+        		throw new IOException("double parse error: '" +  str + "'");
+        	}
         }
         return cnt;
     }
@@ -276,7 +283,7 @@ public class NASAPolynomial implements ThermodynamicInformation {
                 lower[3], lower[4], lower[5], lower[6]));
         return buf.toString();
     }
-    void fillInMoleculeProperties(Molecule mol) {
+    void fillInMoleculeProperties(AtomContainer mol) {
         AtomCounts counts = new AtomCounts(mol);
         atoms = counts.getAtomStringArray(4);
         atomcnt = counts.correspondingAtomCount(4);

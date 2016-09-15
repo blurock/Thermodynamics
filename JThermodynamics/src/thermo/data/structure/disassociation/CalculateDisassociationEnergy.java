@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -30,11 +31,11 @@ public class CalculateDisassociationEnergy {
         this.connect = connect;
     }
 
-    public void calculate(Molecule mol, SetOfBensonThermodynamicBase corrections) throws SQLException, CDKException {
+    public void calculate(AtomContainer mol, SetOfBensonThermodynamicBase corrections) throws SQLException, CDKException {
         BensonThermodynamicBase thermo = (BensonThermodynamicBase) calculate(mol);
         corrections.add(thermo);
     }
-    public ThermodynamicInformation calculate(Molecule mol) throws SQLException, CDKException {
+    public ThermodynamicInformation calculate(AtomContainer mol) throws SQLException, CDKException {
         Double entropyD = new Double(0.0);
 
         DisassociationEnergy energy = getDisassociationEnergyForMolecule(mol);
@@ -45,11 +46,11 @@ public class CalculateDisassociationEnergy {
         return thermo;
     }
 
-    public Double calculateDisassociationEnergy(Molecule mol) throws SQLException, CDKException {
+    public Double calculateDisassociationEnergy(AtomContainer mol) throws SQLException, CDKException {
         DisassociationEnergy energy = getDisassociationEnergyForMolecule(mol);
         return energy.getDisassociationEnergy();
     }
-    public DisassociationEnergy getDisassociationEnergyForMolecule(Molecule mol) throws SQLException, CDKException {
+    public DisassociationEnergy getDisassociationEnergyForMolecule(AtomContainer mol) throws SQLException, CDKException {
        DisassociationEnergy energy = null;
        FindSubstructure find = new FindSubstructure(mol, connect);
        SQLDisassociationEnergy sqldiss = new SQLDisassociationEnergy(connect);

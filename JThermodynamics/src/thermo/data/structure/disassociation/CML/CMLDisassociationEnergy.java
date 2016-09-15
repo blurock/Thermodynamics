@@ -10,14 +10,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.interfaces.IAtomContainer;
 import org.xmlcml.cml.base.CMLElement;
 import org.xmlcml.cml.element.CMLScalar;
 import thermo.CML.CMLAbstractThermo;
 import thermo.data.structure.disassociation.DisassociationEnergy;
-import thermo.data.structure.structure.MetaAtomInfo;
 import thermo.data.structure.structure.StructureAsCML;
 
 /**
@@ -80,7 +77,7 @@ public class CMLDisassociationEnergy  extends CMLAbstractThermo  {
                 
                 StructureAsCML cmlstructure = new StructureAsCML();
                 cmlstructure.setCmlStructureString(structurecmlS);
-                Molecule molecule = cmlstructure.getMolecule();
+                AtomContainer molecule = cmlstructure.getMolecule();
                
                 DisassociationEnergy energy
                         = new DisassociationEnergy(molecule,sourceS,energyD, errorD);

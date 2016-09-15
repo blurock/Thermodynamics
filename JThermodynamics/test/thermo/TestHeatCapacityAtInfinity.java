@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.HeatCapacityAtInfinity;
@@ -52,7 +52,7 @@ public class TestHeatCapacityAtInfinity {
 
     @Test
     public void testSingleAtom() {
-        Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
         mol.setID("He");
         Atom at1 = new Atom("He");
         mol.addAtom(at1);
@@ -63,7 +63,7 @@ public class TestHeatCapacityAtInfinity {
     public void testLinearMolecule() {
         try {
             NancyLinearFormToMolecule nancy = new NancyLinearFormToMolecule(connection);
-            Molecule mol = nancy.convert("'Br'/'Br'");
+            AtomContainer mol = nancy.convert("'Br'/'Br'");
             System.out.println("Heat Capacity of Br2 (linear): " + calculate(mol));
             mol = nancy.convert("h/c///c/h");
             System.out.println("Heat Capacity of HCCH (linear): " + calculate(mol));
@@ -78,7 +78,7 @@ public class TestHeatCapacityAtInfinity {
     public void testGeneralMolecule() {
         try {
             NancyLinearFormToMolecule nancy = new NancyLinearFormToMolecule(connection);
-            Molecule mol = nancy.convert("ch4");
+            AtomContainer mol = nancy.convert("ch4");
             System.out.println("Heat Capacity of ch4: " + calculate(mol));
             mol = nancy.convert("ch3/ch2/ch3");
             System.out.println("Heat Capacity of propane: " + calculate(mol));
@@ -90,7 +90,7 @@ public class TestHeatCapacityAtInfinity {
         }
 
     }
-    double calculate(Molecule mol) {
+    double calculate(AtomContainer mol) {
         double cp = 0.0;
             try {
                 HeatCapacityAtInfinity cpinf = new HeatCapacityAtInfinity(connection);

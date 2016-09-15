@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.DB.SQLAtomCounts;
@@ -65,7 +66,7 @@ public class BuildSubstructureLibrary {
             String nameOfStructure = tok.nextToken();
             ArrayList<String> types = new ArrayList<String>();
 
-            Molecule molecule = linearStructure.convert(nancy);
+            AtomContainer molecule = linearStructure.convert(nancy);
             molecule.setID(nameOfStructure);
             StructureAsCML cmlstruct = new StructureAsCML(molecule);
 

@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
@@ -62,7 +62,7 @@ public class TestSymmetryCorrections {
             //Molecule mol = nancy.convert("ch///c/ch3");
             //Molecule mol = nancy.convert("ch3/c(oh)3");
             //Molecule mol = nancy.convert("ch///c/c(oh)3");
-            Molecule mol = nancy.convert("ch3/ch(oh)/c///ch");
+            AtomContainer mol = nancy.convert("ch3/ch(oh)/c///ch");
             //Molecule mol = nancy.convert("ch3/ch2/ch3");
             CalculateSymmetryCorrection symcorrection = new CalculateSymmetryCorrection(connect);
             SetOfBensonThermodynamicBase set = symcorrection.calculate(mol);

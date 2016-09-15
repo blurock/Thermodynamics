@@ -6,8 +6,6 @@
 package thermo.data.structure.structure;
 
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.Molecule;
-
 /**
  *
  * @author edwardblurock

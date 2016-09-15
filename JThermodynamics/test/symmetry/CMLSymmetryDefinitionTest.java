@@ -18,12 +18,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.symmetry.CML.CMLSymmetryDefinition;
-import thermo.data.structure.structure.symmetry.ListOfSymmetryPairs;
 import thermo.data.structure.structure.symmetry.SymmetryDefinition;
 import thermo.data.structure.structure.symmetry.SymmetryPair;
 import thermo.test.GenerateStructures;
@@ -80,7 +79,7 @@ public class CMLSymmetryDefinitionTest {
             SymmetryDefinition symdef = (SymmetryDefinition) cmlsymmetry1.getStructure();
             System.out.println("Element Name   :    " + symdef.getMetaAtomName());
             System.out.println("Type           :    " + symdef.getMetaAtomType());
-            Molecule molecule = symdef.getMolecule();
+            AtomContainer molecule = symdef.getMolecule();
             System.out.println("atoms and bonds:    " + molecule.getAtomCount() + ", " + molecule.getBondCount());
             System.out.println("CMLStructure   :    " + symdef.getElementName());
             Double internalSymmetryFactor = symdef.getInternalSymmetryFactor();

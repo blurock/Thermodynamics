@@ -11,14 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.exception.CDKException;
-//import org.openscience.cdk.tools.ValencyChecker;
-//import org.openscience.cdk.atomtype.HybridizationMatcher;
-//import org.openscience.cdk.tools.HydrogenAdder;
-//import org.openscience.cdk.aromaticity.HueckelAromaticityDetector;
 import org.openscience.cdk.interfaces.IBond.Order;
 
 public class MolelculePropertiesTest {
@@ -204,7 +200,7 @@ public class MolelculePropertiesTest {
         System.out.println("-------------------------- Aromaticity -----------------------");
         try {
 
-            Molecule mol = new Molecule();
+        	AtomContainer mol = new AtomContainer();
             Atom atm1 = new Atom("N");
             Atom atm2 = new Atom("C");
             Atom atm3 = new Atom("C");

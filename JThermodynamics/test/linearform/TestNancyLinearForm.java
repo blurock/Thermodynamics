@@ -14,8 +14,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Isotope;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.config.isotopes.IsotopeHandler;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
@@ -67,7 +67,7 @@ public class TestNancyLinearForm {
                 String nancylinear = "NancyLinearForm";
                 SQLSubstituteBackMetaAtomIntoMolecule sqlsub = new SQLSubstituteBackMetaAtomIntoMolecule(nancylinear, connection);
                 System.out.println("-------------------------------------------------------");
-                Molecule molecule = nancy.convert(molS);
+                AtomContainer molecule = nancy.convert(molS);
                 Iterable<ISingleElectron> sing = molecule.singleElectrons();
                 Iterator<ISingleElectron> iter = sing.iterator();
                 while (iter.hasNext()) {

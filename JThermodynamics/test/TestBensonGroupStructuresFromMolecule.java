@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonGroupStructure;
 import thermo.data.benson.BensonGroupStructuresFromMolecule;
@@ -22,7 +22,6 @@ import thermo.data.structure.structure.NormalizeMoleculeFromCMLStructure;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.matching.SubstituteMetaAtom;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -98,7 +97,7 @@ public class TestBensonGroupStructuresFromMolecule {
             MetaAtomDefinition carbonmeta = new MetaAtomDefinition("co",generalco);
             SubstituteMetaAtom substitute = new SubstituteMetaAtom(carbonmeta);
             NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-            Molecule molecule = norm.getNormalizedMolecule(cmlstruct);
+            AtomContainer molecule = norm.getNormalizedMolecule(cmlstruct);
 
             substitute.substitute(molecule);
             

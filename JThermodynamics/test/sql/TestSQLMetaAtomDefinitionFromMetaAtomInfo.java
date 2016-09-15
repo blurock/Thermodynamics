@@ -16,7 +16,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonGroupStructure;
 import thermo.data.benson.BensonGroupStructuresFromMolecule;
@@ -71,7 +71,7 @@ public class TestSQLMetaAtomDefinitionFromMetaAtomInfo {
                 System.out.println(set.toString());
 
                 StructureAsCML struct = GenerateStructures.createCH3CHO();
-                Molecule mol = set.substitute(struct);
+                AtomContainer mol = set.substitute(struct);
                 StructureAsCML substruct = new StructureAsCML(mol);
 
                 BensonGroupStructuresFromMolecule generate = new BensonGroupStructuresFromMolecule();

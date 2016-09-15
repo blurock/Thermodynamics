@@ -10,16 +10,15 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.CDKConstants;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.SingleElectron;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IBond.Order;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import thermo.data.benson.DB.ThermoSQLConnection;
-import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.utilities.MoleculeUtilities;
 
 /** Convert the Nancy Linear form string to Molecule
@@ -100,8 +99,8 @@ public class NancyLinearFormToMolecule {
      * @param linearform The string in Nancy linear form
      * @return The molecule
      */
-    public Molecule convert(String linearform) throws SQLException {
-            Molecule molecule = null;
+    public AtomContainer convert(String linearform) throws SQLException {
+    	AtomContainer molecule = null;
             try {
                 linearForm = correctForm.correctNancyLinearForm(linearform);
                 currentCharPosition = 0;
@@ -146,7 +145,7 @@ public class NancyLinearFormToMolecule {
  */
     AtomGroupStringNode processString() throws SQLException {
         AtomGroupStringNode top = null;
-        boolean notdone = !doneParsing();
+        //boolean notdone = !doneParsing();
         top = atomGroup();
 //        System.out.println("processString():  top=\n " + top.toString());
         AtomGroupStringNode node = top;
@@ -193,7 +192,7 @@ public class NancyLinearFormToMolecule {
  * @param mainconnection true if a 'main' connection (distinquishes between connecting central atoms and subatoms)
  */
     private void addNodeToMolecule(AtomGroupStringNode node,
-                        Molecule molecule,
+    		AtomContainer molecule,
                         AtomGroupStringNode previous,
                         Atom prevatm,
                         boolean mainconnection,
@@ -211,7 +210,7 @@ public class NancyLinearFormToMolecule {
             bnd.setFlag(CDKConstants.ISAROMATIC, previous.atomElement.aromaticBond);
             molecule.addBond(bnd);
         } else if (atminfo.bridgeToCycleAtom) {
-            Integer cycle = new Integer(atminfo.cycleNumber);
+            //Integer cycle = new Integer(atminfo.cycleNumber);
         //atm = ringConnections.get(cycle);
         //node = ringInfo.get(cycle);
         } else if (singleAtom(atmS)) {
@@ -418,8 +417,8 @@ public class NancyLinearFormToMolecule {
  *
  * @return the molecule
  */
-    private Molecule convertToMolecule() throws NullPointerException {
-        Molecule molecule = new Molecule();
+    private AtomContainer convertToMolecule() throws NullPointerException {
+    	AtomContainer molecule = new AtomContainer();
         try {
             addNodeToMolecule(moleculeNodeForm, molecule, null, null, true, 1);
             MoleculeUtilities.assignIDs(molecule);

@@ -17,7 +17,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
@@ -32,7 +32,6 @@ import thermo.data.structure.structure.symmetry.SetOfSymmetryDefinitions;
 import thermo.data.structure.structure.symmetry.SymmetryPair;
 import thermo.exception.ThermodynamicException;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -102,7 +101,7 @@ public class TestOpticalSymmetry {
             //String smiles = "CCC(C)O[H]";
             StructureAsCML testmol = GenerateStructures.createFromSmiles(smiles);
             System.out.println(testmol.getCmlStructureString());
-            Molecule molecule = testmol.getMolecule();
+            AtomContainer molecule = testmol.getMolecule();
             int opticalsymmetry = total.determineSymmetry(molecule);
             System.out.println("Total Symmetry of  " + smiles + " is " +  opticalsymmetry);
         } catch (ValidityException ex) {
@@ -125,7 +124,7 @@ public class TestOpticalSymmetry {
             //String smiles = "CCC(C)O[H]";
             StructureAsCML testmol = GenerateStructures.createFromSmiles(smiles);
             System.out.println(testmol.getCmlStructureString());
-            Molecule molecule = testmol.getMolecule();
+            AtomContainer molecule = testmol.getMolecule();
 
             ThermoSQLConnection connect= new ThermoSQLConnection();
             connect.connect();

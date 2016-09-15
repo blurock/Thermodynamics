@@ -19,7 +19,6 @@ import thermo.data.structure.structure.AtomCounts;
 import thermo.data.structure.DB.SQLAtomCounts;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *

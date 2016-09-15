@@ -6,7 +6,8 @@ package thermo.data.benson;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.structure.DetectLinearStructure;
@@ -25,7 +26,7 @@ public class HeatCapacityAtInfinity {
         detectLinear = new DetectLinearStructure(c);
     }
 
-    public double heatCapacityAtInfinity(Molecule mol) throws CDKException, IOException {
+    public double heatCapacityAtInfinity(AtomContainer mol) throws CDKException, IOException {
         double cp = 0.0;
         if (mol.getAtomCount() == 1) {
             cp = 2.5 * rconstant;

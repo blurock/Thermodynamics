@@ -14,13 +14,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.DB.SQLMolecule;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -29,8 +28,8 @@ import static org.junit.Assert.*;
 public class TestSQLMolecule {
     ThermoSQLConnection connect;
 
-    Molecule butane;
-    Molecule methylpropane;
+    AtomContainer butane;
+    AtomContainer methylpropane;
 
     public TestSQLMolecule() {
     }

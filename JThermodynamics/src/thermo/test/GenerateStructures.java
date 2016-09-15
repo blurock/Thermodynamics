@@ -7,9 +7,9 @@ package thermo.test;
 
 import java.io.IOException;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IBond.Order;
@@ -32,7 +32,7 @@ public class GenerateStructures {
      */
     static public  StructureAsCML createGeneralCarbon() throws CDKException, ClassNotFoundException, IOException {
                     // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
             mol.setID("GeneralCarbon");
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("Du");
@@ -68,7 +68,7 @@ public class GenerateStructures {
      */
     static public   StructureAsCML createMethyl() throws CDKException, ClassNotFoundException, IOException {
                     // Build Single Bonded Carbon
-            Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
             Atom at1 = new Atom("C");
             Atom at2 = new Atom("Du");
             Atom at3 = new Atom("H");
@@ -101,7 +101,7 @@ public class GenerateStructures {
      * @throws java.io.IOException
      */
     static public   StructureAsCML createEthane() throws CDKException, ClassNotFoundException, IOException {
-            Molecule ethane = new Molecule();
+    	AtomContainer ethane = new AtomContainer();
             Atom eat1 = new Atom("C");
             Atom eat2 = new Atom("C");
             Atom eat3 = new Atom("H");
@@ -148,7 +148,7 @@ public class GenerateStructures {
      * @throws java.io.IOException
      */
     static public   StructureAsCML createPropane() throws CDKException, ClassNotFoundException, IOException {
-            Molecule propane = new Molecule();
+    	AtomContainer propane = new AtomContainer();
             Atom eat1  = new Atom("C");
             Atom eat2  = new Atom("C");
             Atom eat3  = new Atom("C");
@@ -208,7 +208,7 @@ public class GenerateStructures {
      * @throws java.io.IOException
      */
     static public   StructureAsCML createCH3CHO() throws CDKException, ClassNotFoundException, IOException {
-            Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
             Atom eat1 = new Atom("C");
             Atom eat2 = new Atom("C");
             Atom eat3 = new Atom("O");
@@ -251,7 +251,7 @@ public class GenerateStructures {
      * @throws java.io.IOException
      */
     static public   StructureAsCML createGeneralKetone() throws CDKException, ClassNotFoundException, IOException {
-            Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
             Atom eat1 = new Atom("C");
             Atom eat2 = new Atom("O");
             Atom eat3 = new Atom("Du");
@@ -276,7 +276,7 @@ public class GenerateStructures {
     }
     static public StructureAsCML create2methylpropane() throws CDKException {
         SmilesParser generator = new SmilesParser(DefaultChemObjectBuilder.getInstance());
-        Molecule mol = (Molecule) generator.parseSmiles("CC(C)C");
+        AtomContainer mol = (AtomContainer) generator.parseSmiles("CC(C)C");
         CDKHydrogenAdder adder = CDKHydrogenAdder.getInstance(DefaultChemObjectBuilder.getInstance());
         adder.addImplicitHydrogens(mol);
         for(int a=0;a<4;a++) {
@@ -294,7 +294,7 @@ public class GenerateStructures {
     }
         static public StructureAsCML createFromSmiles(String smiles) throws CDKException {
         SmilesParser generator = new SmilesParser(DefaultChemObjectBuilder.getInstance());
-        Molecule mol = (Molecule) generator.parseSmiles(smiles);
+        AtomContainer mol = (AtomContainer) generator.parseSmiles(smiles);
         CDKHydrogenAdder adder = CDKHydrogenAdder.getInstance(DefaultChemObjectBuilder.getInstance());
         adder.addImplicitHydrogens(mol);
         for(int a=0;a<4;a++) {

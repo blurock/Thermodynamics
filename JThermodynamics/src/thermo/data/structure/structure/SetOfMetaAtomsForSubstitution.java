@@ -7,9 +7,9 @@ package thermo.data.structure.structure;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import thermo.data.structure.structure.matching.SubstituteMetaAtom;
 import thermo.data.structure.utilities.MoleculeUtilities;
 
@@ -63,9 +63,9 @@ public class SetOfMetaAtomsForSubstitution extends ArrayList<SubstituteMetaAtom>
      * @throws ClassNotFoundException
      * @throws IOException
      */
-    public Molecule substitute(StructureAsCML struct) throws CDKException, ClassNotFoundException, IOException {
+    public AtomContainer substitute(StructureAsCML struct) throws CDKException, ClassNotFoundException, IOException {
         NormalizeMoleculeFromCMLStructure norm = new NormalizeMoleculeFromCMLStructure();
-        Molecule molecule = norm.getNormalizedMolecule(struct);
+        AtomContainer molecule = norm.getNormalizedMolecule(struct);
         return substitute(molecule);
         }
 
@@ -83,7 +83,7 @@ public class SetOfMetaAtomsForSubstitution extends ArrayList<SubstituteMetaAtom>
  * The actual substitution is done by the {@link SubstituteMetaAtom} class.
  *
  */
-public Molecule substitute(Molecule molecule) throws CDKException, ClassNotFoundException, IOException {
+public AtomContainer substitute(AtomContainer molecule) throws CDKException, ClassNotFoundException, IOException {
         for (int pr = topPriority; pr >= 0; pr--) {
 
             Iterator<SubstituteMetaAtom> sub = this.iterator();

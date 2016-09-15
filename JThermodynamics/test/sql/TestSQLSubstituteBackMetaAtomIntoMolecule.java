@@ -16,9 +16,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
-import static org.junit.Assert.*;
 
 
 import org.openscience.cdk.exception.CDKException;
@@ -69,7 +68,7 @@ public class TestSQLSubstituteBackMetaAtomIntoMolecule {
                     System.out.println(metaatom.toString());
                 }
 
-         Molecule mol = new Molecule();
+        AtomContainer mol = new AtomContainer();
         mol.setID("Aldehyde");
         Atom at1 = new Atom("co");
         Atom at2 = new Atom("H");

@@ -10,15 +10,9 @@ import org.openscience.cdk.isomorphism.mcss.RMap;
 import java.util.List;
 import java.sql.SQLException;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
-import org.openscience.cdk.Molecule;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.exception.CDKException;
-import thermo.test.GenerateStructures;
-import org.openscience.cdk.interfaces.IAtomContainer;
-import thermo.data.structure.structure.StructureAsCML;
-import thermo.data.structure.substructure.FindSubstructure;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -27,7 +21,6 @@ import org.junit.Test;
 import org.openscience.cdk.AtomContainer;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.linearform.NancyLinearFormToGeneralStructure;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -66,8 +59,8 @@ public class TestCyclicSubstructure {
             GetSubstructureMatches matches = new GetSubstructureMatches();
             String moleculeS = "ch2(#1)/ch//ch/1";
             String substructureS = "c(#1)/c//c/1";
-            Molecule molecule = nancyFormToMolecule.convert(moleculeS);
-            Molecule substructure = nancyFormToMolecule.convert(substructureS);
+            AtomContainer molecule = nancyFormToMolecule.convert(moleculeS);
+            AtomContainer substructure = nancyFormToMolecule.convert(substructureS);
 
             List<List<RMap>> atommaps = matches.getAtomMatches(molecule, substructure);
             System.out.println(atommaps.size());

@@ -14,7 +14,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
@@ -23,8 +23,6 @@ import thermo.data.structure.structure.AddHydrogenToSingleRadical;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.vibrational.CalculateVibrationalCorrectionForRadical;
 import thermo.exception.NotARadicalException;
-import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -57,12 +55,12 @@ public class TestVibrationalCorrectionForRadical {
             c.connect();
             String nancy = "ch3/ch2/ch2(.)";
             NancyLinearFormToMolecule nancyform = new NancyLinearFormToMolecule(c);
-            Molecule molecule = nancyform.convert(nancy);
+            AtomContainer molecule = nancyform.convert(nancy);
             StructureAsCML cmlstruct = new StructureAsCML(molecule);
             System.out.println(cmlstruct.getCmlStructureString());
 
             AddHydrogenToSingleRadical formRH = new AddHydrogenToSingleRadical();
-            Molecule RH = formRH.convert(molecule);
+            AtomContainer RH = formRH.convert(molecule);
             StructureAsCML cmlstructRH = new StructureAsCML(RH);
             System.out.println(cmlstructRH.getCmlStructureString());
 
@@ -81,7 +79,7 @@ public class TestVibrationalCorrectionForRadical {
             c.connect();
             String nancy = "ch3/ch2/ch2(.)";
             NancyLinearFormToMolecule nancyform = new NancyLinearFormToMolecule(c);
-            Molecule molecule = nancyform.convert(nancy);
+            AtomContainer molecule = nancyform.convert(nancy);
             StructureAsCML cmlstruct = new StructureAsCML(molecule);
             System.out.println(cmlstruct.getCmlStructureString());
 

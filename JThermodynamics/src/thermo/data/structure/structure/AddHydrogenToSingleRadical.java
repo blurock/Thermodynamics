@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IBond.Order;
 import org.openscience.cdk.interfaces.IElectronContainer;
@@ -39,7 +39,7 @@ public class AddHydrogenToSingleRadical {
 
     }
 
-    public boolean isARadical(Molecule mol) {
+    public boolean isARadical(AtomContainer mol) {
         boolean ans = mol.getSingleElectronCount() > 0;
         return ans;
     }
@@ -53,10 +53,10 @@ public class AddHydrogenToSingleRadical {
      * @return The molecule with the hydrogen (RH)
      * @throws NotARadicalException
      */
-    public Molecule convert(Molecule mol) throws NotARadicalException {
-        Molecule molecule = null;
+    public AtomContainer convert(AtomContainer mol) throws NotARadicalException {
+    	AtomContainer molecule = null;
         try {
-            molecule = (Molecule) mol.clone();
+            molecule = (AtomContainer) mol.clone();
             IAtom atm = null;
             List<ISingleElectron> electrons = null;
             boolean notfound = true;

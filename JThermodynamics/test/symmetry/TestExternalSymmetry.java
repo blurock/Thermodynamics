@@ -14,15 +14,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
-import org.openscience.cdk.exception.CDKException;
+import org.openscience.cdk.AtomContainer;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
-import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.symmetry.CalculateExternalSymmetryCorrection;
 import thermo.exception.ThermodynamicException;
-import thermo.test.GenerateStructures;
 
 /**
  *
@@ -69,7 +66,7 @@ public class TestExternalSymmetry {
             //Molecule mol = nancy.convert("ch///c/ch3");
             //Molecule mol = nancy.convert("ch3/c(oh)3");
             //Molecule mol = nancy.convert("ch///c/c(oh)3");
-            Molecule mol = nancy.convert("ch3/c(ch3)2/ch3");
+            AtomContainer mol = nancy.convert("ch3/c(ch3)2/ch3");
             CalculateExternalSymmetryCorrection calculate = new CalculateExternalSymmetryCorrection(connect);
             SetOfBensonThermodynamicBase set = new SetOfBensonThermodynamicBase();
             calculate.calculate(mol, set);

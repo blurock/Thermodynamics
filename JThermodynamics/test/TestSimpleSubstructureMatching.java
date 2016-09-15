@@ -12,12 +12,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
-import org.openscience.cdk.interfaces.IAtom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.isomorphism.UniversalIsomorphismTester;
-import org.openscience.cdk.isomorphism.matchers.IQueryAtom;
 import org.openscience.cdk.isomorphism.mcss.RMap;
 import thermo.data.structure.structure.matching.GetSubstructureMatches;
 import org.openscience.cdk.CDKConstants;
@@ -50,7 +48,7 @@ public class TestSimpleSubstructureMatching {
    @Test
     public void MethaneInMethane() {
         // Build Single Bonded Carbon
-        Molecule mol = new Molecule();
+	   AtomContainer mol = new AtomContainer();
         QueryAtomWithMetaAtoms at1 = new QueryAtomWithMetaAtoms(new Atom("C"));
         QueryAtomWithMetaAtoms at2 = new QueryAtomWithMetaAtoms(new Atom("H"));
         QueryAtomWithMetaAtoms at3 = new QueryAtomWithMetaAtoms(new Atom("H"));
@@ -74,7 +72,7 @@ public class TestSimpleSubstructureMatching {
         getAndPrintAtomMatches(mol, mol);
     }
 
-    private void getAndPrintAtomMatches(Molecule mol1, Molecule mol2) {
+    private void getAndPrintAtomMatches(AtomContainer mol1, AtomContainer mol2) {
         try {
             List<List<RMap>> matches = UniversalIsomorphismTester.getSubgraphMaps(mol1, mol2);
             System.out.println("Number of Atom Matchings: " + matches.size());
@@ -93,7 +91,7 @@ public class TestSimpleSubstructureMatching {
         }
 
     }
-    private void getAndPrintBondMatches(Molecule mol1, Molecule mol2) {
+    private void getAndPrintBondMatches(AtomContainer mol1, AtomContainer mol2) {
         GetSubstructureMatches match = new GetSubstructureMatches();
         try {
             List<List<RMap>> matches = match.getBondMatches(mol1, mol2);
@@ -114,7 +112,7 @@ public class TestSimpleSubstructureMatching {
 
     }
 
-    private void getAndPrintMatcheForAtom(Molecule mol1, Molecule mol2, int atmnum) {
+    private void getAndPrintMatcheForAtom(AtomContainer mol1, AtomContainer mol2, int atmnum) {
         GetSubstructureMatches match = new GetSubstructureMatches();
         try {
              Integer[] seta = match.getMatchesForAtom(mol1, mol2, atmnum);

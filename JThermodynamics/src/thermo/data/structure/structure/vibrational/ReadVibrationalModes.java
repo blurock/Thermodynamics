@@ -12,12 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
-import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.vibrational.DB.SQLVibrationalStructureInfo;
 
 /**

@@ -13,7 +13,8 @@ import jThergas.data.structure.JThergasStructureData;
 import jThergas.data.thermo.JThergasThermoData;
 import java.util.HashSet;
 import java.util.Iterator;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonConnectAtomStructure;
 import thermo.data.benson.BensonGroupStructure;
@@ -96,11 +97,11 @@ public class BuildBensonThermodynamicFromThergas {
         return grp;
     }
 
-    public Molecule buildMolecule(JThermgasThermoStructureDataPoint thergasbase, ThermoSQLConnection c) throws CDKException, SQLException {
+    public AtomContainer buildMolecule(JThermgasThermoStructureDataPoint thergasbase, ThermoSQLConnection c) throws CDKException, SQLException {
         JThergasStructureData structure = thergasbase.getStructure();
         String linearform = structure.getNancyLinearForm();
         NancyLinearFormToMolecule nancy = new NancyLinearFormToMolecule(c);
-        Molecule mol = nancy.convert(linearform);
+        AtomContainer mol = nancy.convert(linearform);
         String name = thergasbase.getStructure().getNancyLinearForm().trim();
         if(thergasbase.getStructure().getNameOfStructure() != null) {
             name = thergasbase.getStructure().getNameOfStructure().trim();

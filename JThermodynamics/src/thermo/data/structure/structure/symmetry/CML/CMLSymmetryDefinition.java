@@ -10,7 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.xmlcml.cml.base.CMLElement;
 import org.xmlcml.cml.element.CMLProperty;
@@ -32,7 +33,7 @@ public class CMLSymmetryDefinition extends CMLAbstractThermo {
     public void toCML() {
         try {
             SymmetryDefinition symdef = (SymmetryDefinition) getStructure();
-            Molecule molecule = symdef.getMolecule();
+            AtomContainer molecule = symdef.getMolecule();
             StructureAsCML cmlstructure = new StructureAsCML(molecule);
             String cmlStructureS = cmlstructure.getCmlStructureString();
 

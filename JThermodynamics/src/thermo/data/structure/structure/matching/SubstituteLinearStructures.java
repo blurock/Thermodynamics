@@ -9,10 +9,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IBond;
@@ -38,13 +37,13 @@ public class SubstituteLinearStructures  {
             substitutions = sqlSubstitution.createSubstitutionSets(linearS);
     }
 
-    public Molecule substitute(Molecule mol) throws CDKException, IOException {
+    public AtomContainer substitute(AtomContainer mol) throws CDKException, IOException {
         StructureAsCML cmlstruct = new StructureAsCML(mol);
         return substitute(cmlstruct);
     }
-    public Molecule substitute(StructureAsCML cmlstruct) throws CDKException, IOException {
+    public AtomContainer substitute(StructureAsCML cmlstruct) throws CDKException, IOException {
         try {
-            Molecule molecule = substitutions.substitute(cmlstruct);
+        	AtomContainer molecule = substitutions.substitute(cmlstruct);
             //StructureAsCML cmlstruct1 = new StructureAsCML(molecule);
             //Molecule molecule1 = substitutions.substitute(cmlstruct1);
             condenseConnectedLinearStructures(molecule);
@@ -55,7 +54,7 @@ public class SubstituteLinearStructures  {
         }
     }
 
-    private void condenseConnectedLinearStructures(Molecule molecule) {
+    private void condenseConnectedLinearStructures(AtomContainer molecule) {
         boolean notdone = true;
         Iterator<IBond> iter = molecule.bonds().iterator();
         while(iter.hasNext() && notdone) {

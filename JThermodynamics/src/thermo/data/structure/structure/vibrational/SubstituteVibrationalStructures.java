@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.isomorphism.mcss.RMap;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -41,7 +42,7 @@ public class SubstituteVibrationalStructures {
      * @throws java.sql.SQLException
      * @throws org.openscience.cdk.exception.CDKException
      */
-    public SetOfVibrationalStructureCounts findSubstitutions(Molecule molecule) throws SQLException, CDKException {
+    public SetOfVibrationalStructureCounts findSubstitutions(AtomContainer molecule) throws SQLException, CDKException {
         SetOfVibrationalStructureCounts counts = new SetOfVibrationalStructureCounts();
         Iterator<VibrationalStructureInfo> vibinfo = vibstructures.iterator();
         //int largest = 0;
@@ -53,7 +54,7 @@ public class SubstituteVibrationalStructures {
             if(structvec.size() >= 1) {
                 Iterator<StructureAsCML> iter = structvec.iterator();
                 StructureAsCML cmlstruct = iter.next();
-                Molecule vibmolecule = cmlstruct.getMolecule();
+                AtomContainer vibmolecule = cmlstruct.getMolecule();
                 System.out.println(cmlstruct.getNameOfStructure());
                 int vibsize = vibmolecule.getAtomCount();
                 List<List<RMap>> bondMatches = matches.getBondMatches(molecule, vibmolecule);

@@ -18,7 +18,6 @@ import org.openscience.cdk.exception.CDKException;
 import thermo.data.structure.structure.AtomCounts;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *

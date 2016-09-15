@@ -13,8 +13,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IBond.Order;
 import thermo.data.structure.structure.StructureAsCML;
@@ -51,7 +51,7 @@ public class TestStructureAsCML {
     @Test
     public void CMLStructureString() {
     
-        Molecule mol = new Molecule();
+    	AtomContainer mol = new AtomContainer();
         mol.setID("Aldehyde");
         Atom at1 = new Atom("C");
         Atom at2 = new Atom("H");
@@ -77,7 +77,7 @@ public class TestStructureAsCML {
             
             System.out.println("From CML string to Molecule");
             StructureAsCML cml1 = new StructureAsCML("Aldehyde", cml.getCmlStructureString());
-            Molecule mol1 = cml.getMolecule();
+            AtomContainer mol1 = cml.getMolecule();
         System.out.println("The molecule retrieved: " + mol1.getID());
         System.out.println("Number of Atoms:        " + mol1.getAtomCount());
         System.out.println("Number of Bonds:        " + mol1.getBondCount());

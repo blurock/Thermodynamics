@@ -11,10 +11,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.StringTokenizer;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
@@ -67,7 +67,7 @@ public class BuildStructureLibrary {
             String metaAtomName    = tok.nextToken();
             String typeOfStructure = tok.nextToken();
 
-            Molecule molecule = linearStructure.convert(nancy);
+            AtomContainer molecule = linearStructure.convert(nancy);
             AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(molecule);
             boolean detectAromaticity = CDKHueckelAromaticityDetector.detectAromaticity(molecule);
             molecule.setID(nameOfStructure);

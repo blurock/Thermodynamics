@@ -7,7 +7,8 @@ package thermo.data.structure.structure.symmetry;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.BensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -44,7 +45,7 @@ public class CalculateInternalSymmetryCorrection extends CalculateSymmetryCorrec
     }
 
     @Override
-    public void calculate(Molecule mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
+    public void calculate(AtomContainer mol, SetOfBensonThermodynamicBase corrections) throws ThermodynamicException {
         try {
             int internalsymmetry = calculateInternalSymmetry(mol);
             if (internalsymmetry > 0.0 && internalsymmetry != 1.0) {
@@ -59,7 +60,7 @@ public class CalculateInternalSymmetryCorrection extends CalculateSymmetryCorrec
         }
     }
 
-    public int calculateInternalSymmetry(Molecule mol) throws CDKException {
+    public int calculateInternalSymmetry(AtomContainer mol) throws CDKException {
         return determineTotal.determineSymmetry(mol);
     }
 }

@@ -10,10 +10,9 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import org.openscience.cdk.exception.CDKException;
-import java.util.List;
-import thermo.data.structure.disassociation.DB.SQLDisassociationEnergy;
 import thermo.data.structure.substructure.FindSubstructure;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import thermo.data.structure.linearform.NancyLinearFormToMolecule;
 import thermo.data.structure.linearform.NancyLinearFormToGeneralStructure;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -22,7 +21,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -61,7 +59,7 @@ public class TestFindSubstructure {
             //String nancyS = "ch2(.)ch2/ch2/ch2/ch2/ch3";
             String nancyS = "ch(.)/ch2/ch2/ch2/ch2/ch3";
             //String nancyS = "ch3(.)";
-            Molecule mol = nancy.convert(nancyS);
+            AtomContainer mol = nancy.convert(nancyS);
             FindSubstructure find = new FindSubstructure(mol, connection);
             //SQLDisassociationEnergy sqldiss = new SQLDisassociationEnergy(connection);
             //List<String> names = sqldiss.listOfDisassociationStructures();

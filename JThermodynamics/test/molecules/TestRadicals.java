@@ -15,19 +15,15 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
-import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.interfaces.IElectronContainer;
-import org.openscience.cdk.interfaces.ISingleElectron;
 import org.openscience.cdk.isomorphism.mcss.RMap;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.linearform.NancyLinearFormToGeneralStructure;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.matching.GetSubstructureMatches;
 import thermo.data.structure.utilities.MoleculeUtilities;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -63,7 +59,7 @@ public class TestRadicals {
 
             String molS = "ch2(.)ch3";
 
-            Molecule mol = nancy.convert(molS);
+            AtomContainer mol = nancy.convert(molS);
             MoleculeUtilities.assignIDs(mol);
             List<IAtom> radicals = MoleculeUtilities.findSingleElectrons(mol);
             Iterator<IAtom> iter = radicals.iterator();
@@ -86,13 +82,13 @@ public class TestRadicals {
             String mol2S = "cR3(.)";
             String mol3S = "ch(.)//ch2";
             String mol4S = "ch(.)//R";
-            Molecule mol1 = nancy.convert(mol1S);
+            AtomContainer mol1 = nancy.convert(mol1S);
             MoleculeUtilities.assignIDs(mol1);
-            Molecule mol2 = nancy.convert(mol2S);
+            AtomContainer mol2 = nancy.convert(mol2S);
             MoleculeUtilities.assignIDs(mol2);
-            Molecule mol3 = nancy.convert(mol3S);
+            AtomContainer mol3 = nancy.convert(mol3S);
             MoleculeUtilities.assignIDs(mol3);
-            Molecule mol4 = nancy.convert(mol4S);
+            AtomContainer mol4 = nancy.convert(mol4S);
             MoleculeUtilities.assignIDs(mol4);
 
             GetSubstructureMatches matches = new GetSubstructureMatches();

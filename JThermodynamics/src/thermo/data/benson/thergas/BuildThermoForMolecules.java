@@ -15,8 +15,9 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jThergas.exceptions.JThergasReadException;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
+import org.openscience.cdk.AtomContainer;
+
 import thermo.data.benson.BensonThermodynamicBase;
 import thermo.data.benson.DB.SQLBensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
@@ -164,10 +165,10 @@ public class BuildThermoForMolecules {
     }
     protected void addMoleculeStructureToDatabase(JThermgasThermoStructureDataPoint point,ThermoSQLConnection c) throws CDKException, SQLException {
         try {
-            Molecule molecule = buildBenson.buildMolecule(point,c);
+        	AtomContainer molecule = buildBenson.buildMolecule(point,c);
             substitute.substitute(molecule);
            StructureAsCML cmlstruct = new StructureAsCML(molecule);
-            Molecule substituted = metaAtomSubstitutions.substitute(cmlstruct);
+           AtomContainer substituted = metaAtomSubstitutions.substitute(cmlstruct);
             System.out.println(cmlstruct.getCmlStructureString());
 
             sqlmolecule.addToDatabase(molecule, sourceS);

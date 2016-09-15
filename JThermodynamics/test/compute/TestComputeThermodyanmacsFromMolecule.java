@@ -14,7 +14,6 @@ import org.junit.Test;
 import org.openscience.cdk.exception.CDKException;
 import thermo.compute.ComputeThermodynamicsFromMolecule;
 import thermo.data.benson.BensonThermodynamicBase;
-import thermo.data.benson.CML.CMLBensonThermodynamicBase;
 import thermo.data.benson.CML.CMLSetOfBensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.NASAPolynomialFromBenson;
@@ -24,7 +23,6 @@ import thermo.data.structure.structure.StructureAsCML;
 import thermo.exception.ThermodynamicComputeException;
 import thermo.properties.ChemicalConstants;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *

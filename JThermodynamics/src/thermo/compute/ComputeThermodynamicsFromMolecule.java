@@ -8,8 +8,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.inchi.InChIGeneratorFactory;
@@ -68,7 +69,7 @@ public class ComputeThermodynamicsFromMolecule {
 
     private double[] temperatures;
     double gasConstant;
-    Molecule molecule;
+    AtomContainer molecule;
     /** Constructor
      *
      * This is the basic constructor which sets up the computation of thermodynamic quantities.
@@ -144,7 +145,7 @@ try {
                     inchifactory = InChIGeneratorFactory.getInstance();
             }
             InChIToStructure istruct = inchifactory.getInChIToStructure(inchi, DefaultChemObjectBuilder.getInstance());
-            molecule = new Molecule(istruct.getAtomContainer());
+            molecule = new AtomContainer(istruct.getAtomContainer());
              substitute.substitute(molecule);
             thermo = computeThermodynamics(molecule, thermodynamics);
             
@@ -238,7 +239,7 @@ try {
      * @return The full thermodynamics (all Benson rules and corrections combined)
      * @throws ThermodynamicComputeException
      */
-    public ThermodynamicInformation computeThermodynamics(Molecule mol) throws ThermodynamicComputeException {
+    public ThermodynamicInformation computeThermodynamics(AtomContainer mol) throws ThermodynamicComputeException {
         molecule = mol;
         SetOfBensonThermodynamicBase thermodynamics = new SetOfBensonThermodynamicBase();
         return computeThermodynamics(mol,thermodynamics);
@@ -259,7 +260,7 @@ try {
      * @return The full thermodynamics (all Benson rules and corrections combined)
      * @throws ThermodynamicComputeException
      */
-    public ThermodynamicInformation computeThermodynamics(Molecule molecule, SetOfBensonThermodynamicBase thermodynamics) throws ThermodynamicComputeException {
+    public ThermodynamicInformation computeThermodynamics(AtomContainer molecule, SetOfBensonThermodynamicBase thermodynamics) throws ThermodynamicComputeException {
         BensonThermodynamicBase combinedThermodynamics = null;
         try {
             CDKHueckelAromaticityDetector aromatic = new CDKHueckelAromaticityDetector();
@@ -310,9 +311,9 @@ try {
      * @throws IOException
      * @throws SQLException
      */
-    public void computeThermodynamicsForMolecule(Molecule mol, SetOfBensonThermodynamicBase thermo) throws ThermodynamicException, CDKException, ClassNotFoundException, IOException, SQLException {
+    public void computeThermodynamicsForMolecule(AtomContainer mol, SetOfBensonThermodynamicBase thermo) throws ThermodynamicException, CDKException, ClassNotFoundException, IOException, SQLException {
         //StructureAsCML struct = new StructureAsCML(mol);
-        Molecule substituted = metaAtomSubstitutions.substitute(mol);
+    	AtomContainer substituted = metaAtomSubstitutions.substitute(mol);
         SetOfBensonGroupStructures bensonset = bensonGroups.deriveBensonGroupStructures(substituted);
         sqlthermodynamics.setUpFromSetOfBensonGroupStructures(bensonset,thermo);
         System.out.println(bensonset.toString());
@@ -347,14 +348,14 @@ try {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public void computeThermodynamicsForRadicalContributions(Molecule R, SetOfBensonThermodynamicBase thermo) throws NotARadicalException, ThermodynamicException, SQLException, CDKException, IOException, ClassNotFoundException{
+    public void computeThermodynamicsForRadicalContributions(AtomContainer R, SetOfBensonThermodynamicBase thermo) throws NotARadicalException, ThermodynamicException, SQLException, CDKException, IOException, ClassNotFoundException{
 
         SetOfBensonThermodynamicBase thermominus = new SetOfBensonThermodynamicBase();
-        Molecule RH = formRH.convert(R);
+        AtomContainer RH = formRH.convert(R);
 
         MoleculeUtilities.normalizeMolecule(RH);
         StructureAsCML struct = new StructureAsCML(RH);
-        Molecule substituted = metaAtomSubstitutions.substitute(struct);
+        AtomContainer substituted = metaAtomSubstitutions.substitute(struct);
         SetOfBensonGroupStructures bensonset = bensonGroups.deriveBensonGroupStructures(substituted);
         sqlthermodynamics.setUpFromSetOfBensonGroupStructures(bensonset,thermo);
         symmetryCorrections.calculate(RH, thermo);
@@ -382,7 +383,7 @@ try {
         spinthermo.setReference(spinS);
         return spinthermo;
     }
-    Molecule getMolecule() {
+    AtomContainer getMolecule() {
         return molecule;
     }
 

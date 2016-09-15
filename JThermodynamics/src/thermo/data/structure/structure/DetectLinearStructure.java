@@ -7,7 +7,8 @@ package thermo.data.structure.structure;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.structure.matching.SubstituteLinearStructures;
@@ -21,8 +22,8 @@ public class DetectLinearStructure extends SubstituteLinearStructures {
     public DetectLinearStructure(ThermoSQLConnection c) throws SQLException, CDKException, ClassNotFoundException, IOException {
         super(c);
     }
-    public boolean isLinear(Molecule mol) throws CDKException, IOException {
-        Molecule sub = substitute(mol);
+    public boolean isLinear(AtomContainer mol) throws CDKException, IOException {
+    	AtomContainer sub = substitute(mol);
         //StructureAsCML cmlstruct0 = new StructureAsCML(sub);
         //System.out.println(cmlstruct0.getCmlStructureString());
         //Molecule sub1 = substitute(sub);

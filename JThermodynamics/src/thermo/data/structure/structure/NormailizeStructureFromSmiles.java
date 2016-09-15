@@ -6,10 +6,10 @@
 package thermo.data.structure.structure;
 
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.atomtype.CDKAtomTypeMatcher;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.exception.InvalidSmilesException;
@@ -29,15 +29,15 @@ import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
  */
 public class NormailizeStructureFromSmiles {
 
-        public IMolecule moleculeFromSmiles(String smiles) {
+        public AtomContainer moleculeFromSmiles(String smiles) {
             IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
             
-            Molecule molecule = null;
-            builder.newInstance(Molecule.class, molecule);
+            AtomContainer molecule = null;
+            builder.newInstance(AtomContainer.class, molecule);
         try {
             String cmlstring = null;            
             SmilesParser parser = new SmilesParser(builder);            
-            molecule = (Molecule) parser.parseSmiles(smiles);
+            molecule = (AtomContainer) parser.parseSmiles(smiles);
             addHydrogens(molecule);
         } catch (InvalidSmilesException ex) {
             molecule = null;
@@ -46,7 +46,7 @@ public class NormailizeStructureFromSmiles {
         }
        return molecule;
     }
-    public void addHydrogens(IMolecule molecule) throws CDKException {
+    public void addHydrogens(AtomContainer molecule) throws CDKException {
         SmilesValencyChecker svalency = new SmilesValencyChecker();
         CDKAtomTypeMatcher matcher = CDKAtomTypeMatcher.getInstance((IChemObjectBuilder) molecule.getBuilder());
 

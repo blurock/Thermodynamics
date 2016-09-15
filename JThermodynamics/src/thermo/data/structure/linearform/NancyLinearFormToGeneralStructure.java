@@ -6,7 +6,8 @@ package thermo.data.structure.linearform;
 
 import java.sql.SQLException;
 import java.util.Iterator;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.interfaces.IAtom;
 import thermo.data.benson.DB.ThermoSQLConnection;
 
@@ -25,8 +26,8 @@ public class NancyLinearFormToGeneralStructure extends NancyLinearFormToMolecule
     }
 
     @Override
-    public Molecule convert(String linearform) throws SQLException {
-        Molecule molecule = super.convert(linearform);
+    public AtomContainer convert(String linearform) throws SQLException {
+    	AtomContainer molecule = super.convert(linearform);
 
         Iterator<IAtom> iter = molecule.atoms().iterator();
         while (iter.hasNext()) {

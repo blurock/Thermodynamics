@@ -14,8 +14,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.structure.structure.StructureAsCML;
 
@@ -57,7 +57,7 @@ public class SubstituteMetaAtomsInMoleculeTest {
             StructureAsCML generalketone = GenerateStructures.createGeneralKetone();
             System.out.println("Substitute for CO:\n" + generalketone.getCmlStructureString());
 
-        Molecule mol = new Molecule();
+            AtomContainer mol = new AtomContainer();
         mol.setID("Aldehyde");
         Atom at1 = new Atom("CO");
         Atom at2 = new Atom("H");

@@ -7,8 +7,9 @@ package thermo.data.structure.structure.matching;
 
 import java.util.Iterator;
 import java.util.List;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
@@ -37,7 +38,7 @@ public class IsolateConnectedStructure {
                 directconnected.remove(atm);
             }
         }
-        Molecule substructure = new Molecule();
+        AtomContainer substructure = new AtomContainer();
         substructure.addAtom(firstinstructure);
         boolean noloop = findConnected(mol,substructure, firstinstructure, directconnected, connected);
         if(!noloop) {

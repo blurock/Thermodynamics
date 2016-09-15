@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.DB.SQLMolecule;
@@ -50,18 +50,18 @@ public class FindMoleculeInDatabase {
         try {
             ThermoSQLConnection connect = new ThermoSQLConnection();
             if (!connect.connect())
-               Logger.getLogger(TestAtomCounts.class.getName()).log(Level.SEVERE,"Could not make SQL connection");
+               Logger.getLogger(ThermoSQLConnection.class.getName()).log(Level.SEVERE,"Could not make SQL connection");
             SQLMolecule sqlmolecule = new SQLMolecule(connect);
 
             String molS = "ch3/ch2/ch2/ch3";
             NancyLinearFormToMolecule nancy = new NancyLinearFormToMolecule(connect);
-            Molecule molecule = nancy.convert(molS);
+            AtomContainer molecule = nancy.convert(molS);
             String findmolecule = sqlmolecule.findInDatabase(molecule);
             System.out.println("Should have found Butane: " + findmolecule);
         } catch (SQLException ex) {
-            Logger.getLogger(TestSQLMolecule.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThermoSQLConnection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (CDKException ex) {
-            Logger.getLogger(TestSQLMolecule.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThermoSQLConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 

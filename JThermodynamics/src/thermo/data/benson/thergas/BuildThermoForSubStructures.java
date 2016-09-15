@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.DB.SQLAtomCounts;
 import thermo.data.structure.DB.SQLStructureAsCML;
 import thermo.data.structure.DB.SQLStructureType;
 import thermo.data.structure.structure.AtomCounts;
-import thermo.data.structure.structure.DB.SQLSubstituteBackMetaAtomIntoMolecule;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.StructureType;
 
@@ -66,12 +66,12 @@ public class BuildThermoForSubStructures extends BuildThermoForMolecules {
     @Override
     protected void addMoleculeStructureToDatabase(JThermgasThermoStructureDataPoint point,ThermoSQLConnection c) throws CDKException, SQLException {
         try {
-            Molecule molecule = buildBenson.buildMolecule(point,c);
+        	AtomContainer molecule = buildBenson.buildMolecule(point,c);
             substitute.substitute(molecule);
            StructureAsCML cmlstruct = new StructureAsCML(molecule,sourceS);
             System.out.println(cmlstruct.getCmlStructureString());
 
-            Molecule substituted = metaAtomSubstitutions.substitute(cmlstruct);
+            AtomContainer substituted = metaAtomSubstitutions.substitute(cmlstruct);
             StructureAsCML cml = new StructureAsCML(substituted,sourceS);
 
 

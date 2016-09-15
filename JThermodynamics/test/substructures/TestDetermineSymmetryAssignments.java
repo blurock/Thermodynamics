@@ -15,15 +15,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.symmetry.utilities.DetermineSymmetryAssignmentsFromConnections;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -55,10 +53,10 @@ public class TestDetermineSymmetryAssignments {
     //
     @Test
     public void testDetermineSymmetry() {
-        Molecule ch3a = new Molecule();
-        Molecule ch3b = new Molecule();
-        Molecule ch3c = new Molecule();
-        Molecule ch3d = new Molecule();
+        AtomContainer ch3a = new AtomContainer();
+        AtomContainer ch3b = new AtomContainer();
+        AtomContainer ch3c = new AtomContainer();
+        AtomContainer ch3d = new AtomContainer();
         
         Atom at1a = new Atom("C");
         Atom at1b = new Atom("C");

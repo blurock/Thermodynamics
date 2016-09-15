@@ -13,13 +13,10 @@ import java.util.Vector;
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IBond.Order;
-import org.openscience.cdk.isomorphism.mcss.RMap;
-import thermo.data.structure.structure.AtomCount;
 import thermo.data.structure.structure.AtomCounts;
 import thermo.data.structure.structure.symmetry.SetOfSymmetryAssignments;
 import thermo.data.structure.structure.symmetry.SymmetryAssignment;
@@ -73,7 +70,7 @@ public class SubstructuresFromSymmetry {
 
 
     SymmetryDefinition symmetryDefinition;
-    Molecule symmetryMolecule;
+    AtomContainer symmetryMolecule;
     public SubstructuresFromSymmetry(SymmetryDefinition symmetryDefinition) {
         this.symmetryDefinition = symmetryDefinition;
     }

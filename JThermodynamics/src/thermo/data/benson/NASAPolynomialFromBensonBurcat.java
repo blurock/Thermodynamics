@@ -11,7 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.vecmath.GMatrix;
 import javax.vecmath.GVector;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.structure.structure.DetectLinearStructure;
@@ -30,10 +31,10 @@ public class NASAPolynomialFromBensonBurcat extends NASAPolynomialFromBenson {
     double cpzero;
     double[] burcatcoeffs;
     ThermoSQLConnection connection;
-    Molecule molecule;
+    AtomContainer molecule;
     double[] temperatures = {1000.0,1100.0,1200.0,1500.0};
     double B;
-    public NASAPolynomialFromBensonBurcat(BensonThermodynamicBase b, Molecule molecule, ThermoSQLConnection c) throws SQLException, CDKException, ClassNotFoundException, IOException, ThermodynamicComputeException {
+    public NASAPolynomialFromBensonBurcat(BensonThermodynamicBase b, AtomContainer molecule, ThermoSQLConnection c) throws SQLException, CDKException, ClassNotFoundException, IOException, ThermodynamicComputeException {
         connection = c;
         detectLinear = new DetectLinearStructure(connection);
         heatCapacityAtInfinityAndZero(molecule);
@@ -95,7 +96,7 @@ public class NASAPolynomialFromBensonBurcat extends NASAPolynomialFromBenson {
             }
         return value + cpzero;
     }
-    public void heatCapacityAtInfinityAndZero(Molecule mol) throws CDKException, IOException {
+    public void heatCapacityAtInfinityAndZero(AtomContainer mol) throws CDKException, IOException {
         double cp = 0.0;
         if (mol.getAtomCount() == 1) {
             cpinfinity = 2.5 * rconstant;

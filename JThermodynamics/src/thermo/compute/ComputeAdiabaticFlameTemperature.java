@@ -8,7 +8,9 @@ package thermo.compute;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
-import org.openscience.cdk.Molecule;
+
+import org.openscience.cdk.AtomContainer;
+
 import thermo.data.benson.DB.SQLBensonThermodynamicBase;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.ThermodynamicInformation;
@@ -55,16 +57,16 @@ public class ComputeAdiabaticFlameTemperature {
         h2oThermo = iter.next();
 
     }
-    public void setFuel(Molecule atoms) throws ThermodynamicComputeException{
+    public void setFuel(AtomContainer atoms) throws ThermodynamicComputeException{
         fuelAtoms = new HydrocarbonCompleteCombustion(atoms);
         fuelAtoms.findCompleteCombustionInOxygen();
         initializeThermodynamicsForFuel(atoms);
     }
-    public double computeFlameTemperatureOxygen(Molecule atoms,double beginT) throws ThermodynamicComputeException {
+    public double computeFlameTemperatureOxygen(AtomContainer atoms,double beginT) throws ThermodynamicComputeException {
         setFuel(atoms);
         return computeFlameTemperatureOxygen(beginT);
     }
-    public void initializeThermodynamicsForFuel(Molecule atoms) throws ThermodynamicComputeException {
+    public void initializeThermodynamicsForFuel(AtomContainer atoms) throws ThermodynamicComputeException {
         ComputeThermodynamicsFromMolecule thermo = new ComputeThermodynamicsFromMolecule(connect);
         fuelThermo = thermo.computeThermodynamics(atoms);
     }

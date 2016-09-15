@@ -14,7 +14,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import thermo.data.benson.DB.ThermoSQLConnection;
 import thermo.data.benson.SetOfBensonThermodynamicBase;
@@ -23,7 +23,6 @@ import thermo.data.structure.structure.StructureAsCML;
 import thermo.data.structure.structure.symmetry.CalculateInternalSymmetryCorrection;
 import thermo.exception.ThermodynamicException;
 import thermo.test.GenerateStructures;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -57,7 +56,7 @@ public class TestInternalSymmetry {
     public void TestInternalSymmetry() {
         try {
             StructureAsCML cmlstruct = GenerateStructures.createPropane();
-            Molecule propane = cmlstruct.getMolecule();
+            AtomContainer propane = cmlstruct.getMolecule();
 
 
             ThermoSQLConnection connect = new ThermoSQLConnection();
@@ -88,7 +87,7 @@ public class TestInternalSymmetry {
     public void TestInternalSymmetryOfMethylPropane() {
         try {
             StructureAsCML cmlstruct = GenerateStructures.create2methylpropane();
-            Molecule propane2m = cmlstruct.getMolecule();
+            AtomContainer propane2m = cmlstruct.getMolecule();
             ThermoSQLConnection connect = new ThermoSQLConnection();
             connect.connect();
             CalculateInternalSymmetryCorrection calculate = new CalculateInternalSymmetryCorrection(connect);
@@ -110,7 +109,7 @@ public class TestInternalSymmetry {
             //Molecule mol = nancy.convert("ch3/ch(ch3)/ch3");
             //Molecule mol = nancy.convert("ch3/ch2/ch2/ch2/ch3");
             //Molecule mol = nancy.convert("ch3/ch2/ch3");
-            Molecule mol = nancy.convert("ch2(.)/ch3");
+            AtomContainer mol = nancy.convert("ch2(.)/ch3");
             CalculateInternalSymmetryCorrection calculate = new CalculateInternalSymmetryCorrection(connect);
             SetOfBensonThermodynamicBase set = new SetOfBensonThermodynamicBase();
             calculate.calculate(mol, set);
