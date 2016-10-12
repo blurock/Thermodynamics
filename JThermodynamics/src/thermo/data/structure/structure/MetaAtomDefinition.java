@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openscience.cdk.Atom;
-import org.openscience.cdk.Molecule;
+import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IBond;
@@ -25,7 +25,7 @@ import org.openscience.cdk.interfaces.IBond;
  */
 public class MetaAtomDefinition extends MetaAtomInfo {
     
-    private Molecule molecule;
+    private AtomContainer molecule;
     String unspecifiedAtomPrefix = "R.";
     String unspecifiedAtom = "R";
     private List<Integer> specifiedAtoms;
@@ -65,7 +65,7 @@ public class MetaAtomDefinition extends MetaAtomInfo {
      * @throws java.lang.ClassNotFoundException
      * @throws java.io.IOException
      */
-    public MetaAtomDefinition(String name, Molecule mol) throws CDKException, ClassNotFoundException, IOException {
+    public MetaAtomDefinition(String name, AtomContainer mol) throws CDKException, ClassNotFoundException, IOException {
          setMetaAtomName(name);
          putMolecule(mol);
          
@@ -102,7 +102,7 @@ public class MetaAtomDefinition extends MetaAtomInfo {
             }
         }
     }
-    private void putMolecule(Molecule mol) throws CDKException, ClassNotFoundException, IOException {
+    private void putMolecule(AtomContainer mol) throws CDKException, ClassNotFoundException, IOException {
         molecule = mol;
          isolateSpecifiedAtoms();
          determineConnectingBondsAndAtoms();
@@ -118,7 +118,7 @@ public class MetaAtomDefinition extends MetaAtomInfo {
      *
      * @return
      */
-    public Molecule getMolecule() {
+    public AtomContainer getMolecule() {
         return molecule;
     }
 
