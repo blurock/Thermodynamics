@@ -48,7 +48,11 @@ public class ThermoSQLConnection {
     public boolean connect(String conS, String user, String pass) {
         boolean success = true;
             try {
-            Class.forName( "com.mysql.jdbc.Driver" ).newInstance();
+                Logger.getLogger(ThermoSQLConnection.class.getName()).log(Level.INFO,
+                        "connect()\t " + conS + "\t  " + user + ": " + pass + "\n");
+                            
+                
+            //Class.forName( "com.mysql.jdbc.Driver" ).newInstance();
             Logger.getLogger(ThermoSQLConnection.class.getName()).log(Level.INFO,
                     "connect()\t " + conS + "\t  " + user + ": " + pass + "\n");
             connection = DriverManager.getConnection(conS, user, pass);

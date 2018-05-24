@@ -1,0 +1,58 @@
+{
+  "description": "App Engine API",
+  "path": "com.google.cloud.tools.eclipse.appengine.libraries/appengine-api",
+  "entries": [
+    {
+      "accessRules": [
+        {
+          "ruleKind": "FORBIDDEN",
+          "pattern": "com/google/appengine/repackaged/**"
+        },
+        {
+          "ruleKind": "FORBIDDEN",
+          "pattern": "com/google/appengine/labs/repackaged/**"
+        },
+        {
+          "ruleKind": "ACCESSIBLE",
+          "pattern": "com/google/apphosting/api/**"
+        },
+        {
+          "ruleKind": "FORBIDDEN",
+          "pattern": "com/google/apphosting/**"
+        }
+      ],
+      "sourceAttachmentPath": "",
+      "path": "com/google/appengine/appengine-api-1.0-sdk/1.9.55/appengine-api-1.0-sdk-1.9.55.jar",
+      "attributes": [
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.repository",
+          "value": "central"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.groupid",
+          "value": "com.google.appengine"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.artifactId",
+          "value": "appengine-api-1.0-sdk"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.type",
+          "value": "jar"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.version",
+          "value": "1.9.55"
+        },
+        {
+          "name": "org.eclipse.jst.component.dependency",
+          "value": "/WEB-INF/lib"
+        },
+        {
+          "name": "javadoc_location",
+          "value": "https://cloud.google.com/appengine/docs/java/javadoc/"
+        }
+      ]
+    }
+  ]
+}

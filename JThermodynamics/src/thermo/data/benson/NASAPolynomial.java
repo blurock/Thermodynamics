@@ -202,7 +202,7 @@ public class NASAPolynomial implements ThermodynamicInformation {
 				upperT = parseDouble(l1.substring(55, 65));
 				middleT = parseDouble(l1.substring(65, 74));
 			} catch (IOException ex) {
-				throw new IOException("Error in reading NASA polynomial: \n" + ex.toString() + "\n " + l1);
+				throw new IOException("Error in reading NASA polynomial (line 1): \n" + ex.toString() + "\n " + l1);
 			}
 		} else {
 			throw new IOException("Error in reading NASA polynomial (line 1): \n " + l1);
@@ -215,7 +215,7 @@ public class NASAPolynomial implements ThermodynamicInformation {
 				upper[3] = parseDouble(l2.substring(45, 60));
 				upper[4] = parseDouble(l2.substring(60, 75));
 			} catch (IOException ex) {
-				throw new IOException("Error in reading NASA polynomial: \n" + ex.toString() + "\n " + l2);
+				throw new IOException("Error in reading NASA polynomial (line 2): \n" + ex.toString() + "\n " + l2);
 			}
 		} else {
 			throw new IOException("Error in reading NASA polynomial (line 2): \n " + l2);
@@ -228,7 +228,7 @@ public class NASAPolynomial implements ThermodynamicInformation {
 				lower[1] = parseDouble(l3.substring(45, 60));
 				lower[2] = parseDouble(l3.substring(60, 75));
 			} catch (IOException ex) {
-				throw new IOException("Error in reading NASA polynomial: \n" + ex.toString() + "\n " + l3);
+				throw new IOException("Error in reading NASA polynomial (line 3): \n" + ex.toString() + "\n " + l3);
 			}
 		} else {
 			throw new IOException("Error in reading NASA polynomial (line 3): \n " + l3);
@@ -240,7 +240,7 @@ public class NASAPolynomial implements ThermodynamicInformation {
 				lower[5] = parseDouble(l4.substring(30, 45));
 				lower[6] = parseDouble(l4.substring(45, 60));
 			} catch (IOException ex) {
-				throw new IOException("Error in reading NASA polynomial: \n" + ex.toString() + "\n " + l4);
+				throw new IOException("Error in reading NASA polynomial (line 4): \n" + ex.toString() + "\n " + l4);
 			}
 		} else {
 			throw new IOException("Error in reading NASA polynomial (line 4): \n " + l4);
@@ -248,27 +248,41 @@ public class NASAPolynomial implements ThermodynamicInformation {
 	}
 
 	int convertInt(String str) throws IOException {
-		str = str.trim();
 		int cnt = 0;
+		try {
+		str = str.trim();
+		
 		if (str.length() != 0) {
 			cnt = Integer.parseInt(str);
+		}
+		} catch(Exception ex) {
+			throw new IOException("Integer Conversion Error: '" + str + "'\n" + ex.toString());
 		}
 		return cnt;
 	}
 
 	double parseDouble(String str) throws IOException {
+		double cnt = 0;
+		try {
 		str = str.trim();
 		if (str.contains("e ")) {
 			str = str.replace("e ", "e+");
 			System.out.println("Replaced to: '" + str + "'");
 		}
-		double cnt = 0;
+		if (str.contains("E ")) {
+			str = str.replace("E ", "E+");
+			System.out.println("Replaced to: '" + str + "'");
+		}
+		
 		if (str.length() != 0) {
 			try {
 				cnt = Double.parseDouble(str);
 			} catch (NumberFormatException ex) {
 				throw new IOException("double parse error: '" + str + "'");
 			}
+		}
+		} catch(Exception ex) {
+			throw new IOException("Double Conversion Error: '" + str + "'\n" + ex.toString());
 		}
 		return cnt;
 	}

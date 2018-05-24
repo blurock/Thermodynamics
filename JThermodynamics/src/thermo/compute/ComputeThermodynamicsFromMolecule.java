@@ -148,8 +148,6 @@ try {
             molecule = new AtomContainer(istruct.getAtomContainer());
              substitute.substitute(molecule);
             thermo = computeThermodynamics(molecule, thermodynamics);
-            
-
         } catch (CDKException ex) {
             Logger.getLogger(ComputeThermodynamicsFromMolecule.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -138,4 +138,37 @@ public class JThergasAtomicStructure {
         buf.append(dateString);
         return buf.toString();
     }
+
+	public Vector getAtoms() {
+		return atoms;
+	}
+
+	public int getTableNumber() {
+		return tableNumber;
+	}
+
+	public int getGroupNumber() {
+		return groupNumber;
+	}
+
+	public String getNumberOfAtomsA1() {
+		return numberOfAtomsA1;
+	}
+
+	public int getNumberOfAtoms() {
+		return numberOfAtoms;
+	}
+
+	public String getDateString() {
+		return dateString;
+	}
+
+	public int[] getReferenceAtomNumbers() {
+		return referenceAtomNumbers;
+	}
+
+	public String[] getReferenceAtomNames() {
+		return referenceAtomNames;
+	}
+    
 }

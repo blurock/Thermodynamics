@@ -39,7 +39,8 @@ public class SProperties {
         setProperty("thermo.data.bensonstandard.temperatures","300,400,500,600,800,1000,1500");
         setProperty("thermo.types.name.thergasbenson","StandardThergasBenson");
         setProperty("thermo.data.gasconstant.clasmolsk","1.98587755");
-        setProperty("thermo.database.connection","jdbc:mysql://127.0.0.1:3306/Thermodynamics");
+        setProperty("thermo.database.connection","jdbc:mysql://google/thermodynamics?cloudSqlInstance=kubernetesdemo-162512:europe-west1:thermodynamics&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false");
+        //    setProperty("thermo.database.connection","jdbc.mysql://35.205.162.227:3306/thermodynamics");
         setProperty("thermo.database.dbuser","root");
         setProperty("thermo.database.dbpassword","laguna");
         load();

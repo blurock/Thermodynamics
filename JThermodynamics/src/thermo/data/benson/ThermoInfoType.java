@@ -6,7 +6,6 @@ package thermo.data.benson;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Vector;
 
 /** This base class (others will be derived from this) holds the meta
  * information about the benson information.
@@ -36,7 +35,7 @@ public class ThermoInfoType {
      */
     public ThermoInfoType(String name) {
         typeName = name;
-               Temperatures = new HashSet<Double>();
+        Temperatures = new HashSet<Double>();
         TemperatureArray = new Double[0];
     }
 
@@ -75,7 +74,7 @@ public class ThermoInfoType {
         TemperatureArray = new Double[Temperatures.size()];
         int i = 0;
         while(iter.hasNext()) {
-            TemperatureArray[i] = iter.next();
+            TemperatureArray[i++] = iter.next();
         }
     }
 
@@ -107,7 +106,7 @@ public class ThermoInfoType {
             int i=0;
             Iterator<Double> iter = Temperatures.iterator();
             while(iter.hasNext()) {
-                TemperatureArray[i] = iter.next();
+                TemperatureArray[i++] = iter.next();
             }
         }
         return ans;
@@ -120,7 +119,7 @@ public class ThermoInfoType {
      */
     public synchronized boolean add(double temperature) {
         Double tD = new Double(temperature);
-        return Temperatures.add(tD);
+        return this.add(tD);
     }
 
     /**
@@ -129,25 +128,36 @@ public class ThermoInfoType {
      * @return Temperature
      */
     public double getTemperature(int i) {
-        Double[] temps = (Double[]) Temperatures.toArray();
+        //Double[] temps = (Double[]) Temperatures.toArray();
         return TemperatureArray[i].doubleValue();
     }
 
     /** The lower bound of the set of temperatures
      * 
      * @param t The input temperature
-     * @return Within the set temperaturess, the highest temperature lower than t
+     * @return Within the set temperatures, the highest temperature lower than t
      */
     public int getTemperatureLowerIndex(double t) {
         int lower = -1;
         int i = TemperatureArray.length - 1;
         while (lower == -1 && i >= 0) {
+        	if(TemperatureArray[i] != null) {
             if (TemperatureArray[i] <= t) {
                 lower = i;
                 i--;
             } else {
                 i--;
             }
+        	} else {
+        		i--;
+        		System.out.println("Temperature null in" + typeName);
+        		System.out.println("Temperature null in" + Temperatures.toString());
+        		System.out.println("Temperature null in");
+        		for(int cnt=0; cnt< TemperatureArray.length;cnt++) {
+        			System.out.print(TemperatureArray[cnt] + "  ");
+        		}
+        		System.out.println("");
+        	}
         }
         return lower;
     }

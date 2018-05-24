@@ -1,0 +1,46 @@
+{
+  "description": "Google Cloud Endpoints",
+  "path": "com.google.cloud.tools.eclipse.appengine.libraries/appengine-endpoints",
+  "entries": [
+    {
+      "accessRules": [
+        {
+          "ruleKind": "FORBIDDEN",
+          "pattern": "com/google/appengine/repackaged/**"
+        }
+      ],
+      "sourceAttachmentPath": "BIN/com/google/endpoints/endpoints-framework/2.0.8/endpoints-framework-2.0.8-sources.jar",
+      "path": "com/google/endpoints/endpoints-framework/2.0.8/endpoints-framework-2.0.8.jar",
+      "attributes": [
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.repository",
+          "value": "central"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.groupid",
+          "value": "com.google.endpoints"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.artifactId",
+          "value": "endpoints-framework"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.type",
+          "value": "jar"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.version",
+          "value": "2.0.8"
+        },
+        {
+          "name": "org.eclipse.jst.component.dependency",
+          "value": "/WEB-INF/lib"
+        },
+        {
+          "name": "javadoc_location",
+          "value": "https://cloud.google.com/endpoints/docs/frameworks/java/javadoc/"
+        }
+      ]
+    }
+  ]
+}

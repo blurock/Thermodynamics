@@ -270,7 +270,12 @@ public class BensonThermodynamicBase extends ChemObject implements Thermodynamic
         if (index + 1 >= setOfHeatCapacities.size()) {
             factor = cplower * t;
         } else {
-            HeatCapacityTemperaturePair[] arraySet = (HeatCapacityTemperaturePair[]) setOfHeatCapacities.toArray();
+        	HeatCapacityTemperaturePair[] arraySet = new HeatCapacityTemperaturePair[setOfHeatCapacities.size()];
+        	int cnt = 0;
+        	for(HeatCapacityTemperaturePair tpair : setOfHeatCapacities) {
+        		arraySet[cnt] = tpair;
+        	}
+            //HeatCapacityTemperaturePair[] arraySet = (HeatCapacityTemperaturePair[]) setOfHeatCapacities.toArray();
             HeatCapacityTemperaturePair upperpair = arraySet[index];
             double cpupper = upperpair.getHeatCapacityValue();
             double tupper = upperpair.getTemperatureValue();
@@ -318,7 +323,13 @@ public class BensonThermodynamicBase extends ChemObject implements Thermodynamic
     @Override
     public double getHeatCapacity(double temperature) throws ThermodynamicComputeException {
         ThermoInfoType type = new ThermoInfoType(this.getTemperatures());
-        HeatCapacityTemperaturePair[] arraySet = (HeatCapacityTemperaturePair[]) setOfHeatCapacities.toArray();
+        HeatCapacityTemperaturePair[] arraySet = new HeatCapacityTemperaturePair[setOfHeatCapacities.size()];
+        int count=0;
+        for(HeatCapacityTemperaturePair pair : setOfHeatCapacities) {
+        	arraySet[count++] = pair;
+        }
+        
+        //HeatCapacityTemperaturePair[] arraySet = (HeatCapacityTemperaturePair[]) setOfHeatCapacities.toArray();
         int i = type.getTemperatureLowerIndex(temperature);
         double heatCapacity = 0;
         if (i == -1) {
@@ -370,12 +381,17 @@ public class BensonThermodynamicBase extends ChemObject implements Thermodynamic
         buf.append("\tReference:'");
         buf.append(this.getReference());
         buf.append("'");
-        Iterator<HeatCapacityTemperaturePair> iter = (Iterator<HeatCapacityTemperaturePair>) this.getSetOfHeatCapacities();
-        while(iter.hasNext()){
-            HeatCapacityTemperaturePair pair = iter.next();
+        if(this.getSetOfHeatCapacities() != null) {
+        for(HeatCapacityTemperaturePair pair : this.getSetOfHeatCapacities()) {
+        //Iterator<HeatCapacityTemperaturePair> iter = (Iterator<HeatCapacityTemperaturePair>) this.getSetOfHeatCapacities();
+        //while(iter.hasNext()){
+            //HeatCapacityTemperaturePair pair = iter.next();
                             buf.append("\t[");
                 buf.append(pair.toString());
                 buf.append("]");
+        }
+        } else {
+        	buf.append("\tno heat capacities ");
         }
         return buf.toString();
     }

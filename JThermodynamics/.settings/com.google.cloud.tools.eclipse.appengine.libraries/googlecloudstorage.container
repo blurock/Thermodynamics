@@ -1,0 +1,76 @@
+{
+  "description": "Google Cloud Storage Client Library for Java",
+  "path": "com.google.cloud.tools.eclipse.appengine.libraries/googlecloudstorage",
+  "entries": [
+    {
+      "accessRules": [],
+      "sourceAttachmentPath": "BIN/com/google/cloud/google-cloud-storage/1.30.0/google-cloud-storage-1.30.0-sources.jar",
+      "path": "com/google/cloud/google-cloud-storage/1.30.0/google-cloud-storage-1.30.0.jar",
+      "attributes": [
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.repository",
+          "value": "central"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.groupid",
+          "value": "com.google.cloud"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.artifactId",
+          "value": "google-cloud-storage"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.type",
+          "value": "jar"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.version",
+          "value": "1.30.0"
+        },
+        {
+          "name": "org.eclipse.jst.component.dependency",
+          "value": "/WEB-INF/lib"
+        },
+        {
+          "name": "javadoc_location",
+          "value": "https://googlecloudplatform.github.io/google-cloud-java/0.21.0/apidocs/"
+        }
+      ]
+    },
+    {
+      "accessRules": [],
+      "sourceAttachmentPath": "BIN/com/google/apis/google-api-services-storage/v1-rev108-1.22.0/google-api-services-storage-v1-rev108-1.22.0-sources.jar",
+      "path": "com/google/apis/google-api-services-storage/v1-rev108-1.22.0/google-api-services-storage-v1-rev108-1.22.0.jar",
+      "attributes": [
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.repository",
+          "value": "central"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.groupid",
+          "value": "com.google.apis"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.artifactId",
+          "value": "google-api-services-storage"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.type",
+          "value": "jar"
+        },
+        {
+          "name": "com.google.cloud.tools.eclipse.appengine.libraries.version",
+          "value": "v1-rev108-1.22.0"
+        },
+        {
+          "name": "org.eclipse.jst.component.dependency",
+          "value": "/WEB-INF/lib"
+        },
+        {
+          "name": "javadoc_location",
+          "value": "https://developers.google.com/resources/api-libraries/documentation/storage/v1/java/latest/index.html"
+        }
+      ]
+    }
+  ]
+}
